@@ -7,10 +7,14 @@
 [core]
     excludesfile = ~/.gitignore_global
     editor = subl -n -w
+    #editor = code --wait
     autocrlf = input
 
 [pull]
     rebase = true
+
+[commit]
+	template = /Users/olaf.prins/.stCommitMsg
 
 [alias]
     co = checkout
