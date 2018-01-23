@@ -1,11 +1,11 @@
 # .gitconfig
 
-[user]
-    name = Olaf Prins
-    email = olaf.prins@web.de
+# use separate file for username, github token etc.
+[include]
+    path = ~/.gitconfig.local
 
 [core]
-    excludesfile = /Users/olaf/.gitignore_global
+    excludesfile = ~/.gitignore_global
     editor = subl -n -w
     autocrlf = input
 
