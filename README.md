@@ -1,18 +1,14 @@
-
 # My dotfiles
 
 These are my dotfiles. Take anything you want, but at your own risk. It targets macOS systems.
-
 
 ## Clone with Git
 
     > git clone git://github.com/someone47/dotfiles.git ~/.dotfiles
 
-
 ## Install dotfiles
 
     source ~/.dotfiles/install.sh
-
 
 ## Some useful links
 
