@@ -20,8 +20,9 @@ fi
 # --- Source the dotfiles
 
 for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,completion,grep,prompt,nvm,rvm,custom}; do
-    [ -f "$DOTFILE" ]  &&  . "$DOTFILE"
+    [ -r "$DOTFILE" ] && [ -f "$DOTFILE" ]  &&  source "$DOTFILE"
 done
+unset DOTFILE;
 
 
 # --- Export environment variables
