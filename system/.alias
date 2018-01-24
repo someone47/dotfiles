@@ -26,4 +26,3 @@ alias vim='mvim -v'
 
 # gitg: aktuellen Branch als Graph
 alias gitg='git log --graph --decorate --oneline'
-
