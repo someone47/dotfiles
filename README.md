@@ -15,3 +15,7 @@ These are my dotfiles. Take anything you want, but at your own risk. It targets 
 * [Getting Started With Dotfiles](https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789)
 
 * [Getting Started with Dotfiles](https://medium.com/@driesvints/getting-started-with-dotfiles-76bf046d035c)
+
+## Todo
+
+* macOS setting: set U.S.-daniel keyboard as default

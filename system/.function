@@ -1,0 +1,5 @@
+
+# mcd: Makes new Dir and jumps inside
+mcd () {
+    mkdir -p "$1" && cd "$1";
+}

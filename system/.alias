@@ -1,0 +1,29 @@
+
+# a - all, h - human readable, l - long
+# F: / = directory, * = executable, @ = symlink, = = socket, % = whiteout, | = FIFO, G = Color
+alias dir='ls -FGlah'
+alias l='ls -FGlah'
+
+alias ll="ls -l"
+alias la="ls -a"
+
+# up 'n' folders
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# n: Neues Terminal im gleichem Verzeichnis oeffen (new/openhere)
+alias n='open -a /Applications/Utilities/Terminal.app .'
+
+# f: Aktuelles Verzeichnis im Finder oeffnen
+alias f='open -a Finder ./'
+
+# e: Text Editor oeffnen
+alias e=$EDITOR
+
+# vim: use MacVim instead of the system vim
+alias vim='mvim -v'
+
+# gitg: aktuellen Branch als Graph
+alias gitg='git log --graph --decorate --oneline'
+
