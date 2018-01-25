@@ -1,0 +1,108 @@
+
+# -- Prompt Command function
+
+# Zeile 0; Error-Code des letzten Befehls:  Error Code: 123
+# Zeile 1; User, Computer, Pfad:            [olaf@MacBookAir::~]
+# Zeile 3; Prompt:                          └─▶
+#
+# Zeile 0 wird nur dargestellt, wenn der Fehlercode nicht 0 ist.
+#
+# Prompt in .bash_profile aktivieren mit
+#
+#     [[ -f "$HOME/.my_bash_prompt.sh" ]] && source "$HOME/.my_bash_prompt.sh"
+#     PROMPT_COMMAND=my_prompt_command
+#
+# PROMPT_COMMAND: Bash shell executes the content of the PROMPT_COMMAND just
+# before displaying the PS1 variable.
+
+# TODO
+# - Git-Prompt integrieren
+#   http://brettterpstra.com/2009/11/17/my-new-favorite-bash-prompt/
+#   https://dev.to/gonedark/tweak-your-terminal-for-git
+#   https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
+# - Akitivieren von Prompt in .bash_profile mit in if-Abfrage
+
+my_prompt_command () {
+
+    # Colors
+
+    # https://bash.cyberciti.biz/guide/Changing_bash_prompt
+    # \033 = ESC; \[ und \] einschliessen von nichtlesbaren Zeichen
+
+    # regular colors
+    local K="\[\033[0;30m\]"    # black
+    local R="\[\033[0;31m\]"    # red
+    local G="\[\033[0;32m\]"    # green
+    local Y="\[\033[0;33m\]"    # yellow
+    local B="\[\033[0;34m\]"    # blue
+    local P="\[\033[0;35m\]"    # purple/magenta
+    local C="\[\033[0;36m\]"    # cyan
+    local W="\[\033[0;37m\]"    # white
+
+    local RST="\[\033[0;39m\]"  # RESET: return color to Terminal setting for text color
+    local C_DEFAULT="\[\033[m\]"  # Auch RESET?
+
+    # emphasized (bolded) colors
+    local EMK="\[\033[1;30m\]"  # dark grey
+    local EMR="\[\033[1;31m\]"  # light red
+    local EMG="\[\033[1;32m\]"  # light green
+    local EMY="\[\033[1;33m\]"  # light yellow
+    local EMB="\[\033[1;34m\]"  # light blue
+    local EMP="\[\033[1;35m\]"  # light purple
+    local EMC="\[\033[1;36m\]"  # light cyan
+    local EMW="\[\033[1;37m\]"  #
+
+    # background colors
+    local BGK="\[\033[40m\]"    # black
+    local BGR="\[\033[41m\]"    # red
+    local BGG="\[\033[42m\]"    # green
+    local BGY="\[\033[43m\]"    # yellow
+    local BGB="\[\033[44m\]"    # blue
+    local BGM="\[\033[45m\]"    # purple/magenta
+    local BGC="\[\033[46m\]"    # cyan
+    local BGW="\[\033[47m\]"    # white
+
+
+    # set an error string for the prompt, if applicable
+    if [ $? -eq 0 ]; then
+        ERRPROMPT=""
+    else
+        ERRPROMPT='Error Code: $?\n'
+    fi
+
+
+    # PS1 codes:
+    # \# – Command number
+    # \d – Current date
+    # \t – Current time
+    # \h – Host name
+    # \u – User name
+    # \W – Current working directory (i.e. Desktop/)
+    # \w – The current working directory, with $HOME abbreviated with a tilde (uses the $PROMPT_DIRTRIM variable).
+    # \n - new line
+
+    line0="${R}${ERRPROMPT}"
+    line1="${EMP}[\u@\h:\w]\n"
+    line2="└─▶${RST} "
+
+    export PS1="${line0}${line1}${line2}"
+}
+
+PROMPT_COMMAND=my_prompt_command
+
+
+# -- ANSI/VT100 escape sequences
+
+# siehe
+# https://misc.flogisoft.com/bash/tip_colors_and_formatting
+# https://apple.stackexchange.com/questions/9821/can-i-make-my-mac-os-x-terminal-color-items-according-to-syntax-like-the-ubuntu/9825#9825
+# https://bash.cyberciti.biz/guide/Changing_bash_prompt
+
+# ESC = \033
+# Tips:
+# - The -e option of the echo command enable the parsing of the escape sequences.
+# - The “\e[0m” sequence removes all attributes (formatting and colors). It can be a good idea
+#   to add it at the end of each colored text.
+# - Wrapping the tput output in \[ \] is recommended by the Bash man page. This helps Bash ignore
+#   non-printable characters so that it correctly calculates the size of the prompt.
+
