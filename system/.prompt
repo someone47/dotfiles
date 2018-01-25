@@ -24,6 +24,8 @@
 
 my_prompt_command () {
 
+    local EXIT_CODE=$?
+
     # Colors
 
     # https://bash.cyberciti.biz/guide/Changing_bash_prompt
@@ -62,14 +64,12 @@ my_prompt_command () {
     local BGC="\[\033[46m\]"    # cyan
     local BGW="\[\033[47m\]"    # white
 
-
     # set an error string for the prompt, if applicable
-    if [ $? -eq 0 ]; then
+    if [[ $EXIT_CODE == 0 ]] ; then
         ERRPROMPT=""
     else
-        ERRPROMPT='Error Code: $?\n'
+        ERRPROMPT='✘ Error Code: $?\n'
     fi
-
 
     # PS1 codes:
     # \# – Command number
