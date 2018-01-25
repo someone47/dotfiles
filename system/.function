@@ -1,5 +1,13 @@
 
-# mcd: Makes new Dir and jumps inside
-mcd () {
-    mkdir -p "$1" && cd "$1";
+# mcd - Makes new Dir and jumps inside
+# $1: a directory
+mcd() {
+    mkdir -p "$1"  &&  cd "$1";
+}
+
+
+# prepend-path - Puts the given directory at the start of the PATH
+# $1: a directory
+prepend-path() {
+    [ -d $1 ]  &&  PATH="$1:$PATH"
 }
