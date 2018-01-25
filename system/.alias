@@ -26,3 +26,9 @@ alias vim='mvim -v'
 
 # gitg: aktuellen Branch als Graph
 alias gitg='git log --graph --decorate --oneline'
+
+# uuid: generate a uuid with all uppercase letters
+alias uuid='uuidgen'
+
+# guid: generate a uuid with all lowercase letters
+alias guid='uuidgen | tr "[:upper:]" "[:lower:]"'
