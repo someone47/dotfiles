@@ -11,6 +11,4 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 ln -sfv "$DOTFILES_DIR/git/.gitconfig" ~
 ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
-ln -sfv "$DOTFILES_DIR/macos/keyboard/U.S-daniel.keylayout" ~/Library/Keyboard\ Layouts
-ln -sfv "$DOTFILES_DIR/macos/keyboard/U.S-daniel.icns" ~/Library/Keyboard\ Layouts
 #ln -sfv "$DOTFILES_DIR/system/.bash_profile" ~/bash_profile
