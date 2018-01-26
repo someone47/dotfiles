@@ -1,3 +1,4 @@
+# .alias
 
 # a - all, h - human readable, l - long
 # F: / = directory, * = executable, @ = symlink, = = socket, % = whiteout, | = FIFO, G = Color
