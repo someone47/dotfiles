@@ -1,0 +1,28 @@
+# .path
+
+prepend-path "/sbin"
+prepend-path "/bin"
+prepend-path "/usr/sbin"
+prepend-path "/usr/bin"
+prepend-path "/usr/local/sbin"
+prepend-path "/usr/local/bin"
+
+prepend-path "$HOME/.gem/bin"
+prepend-path "$HOME/dev/java/prog/maven/current/bin"
+
+prepend-path "$DOTFILES_DIR/bin"
+prepend-path "$HOME/bin"
+
+
+# What do we do with path_helper?
+# path_helper (macOS Tool)
+# Pfade in den Dateien unter /etc/paths.d voranstellen
+#eval $(/usr/libexec/path_helper -s)
+
+# Remove duplicates (preserving prepended items)
+# Source: http://unix.stackexchange.com/a/40755
+PATH=`echo -n $PATH | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
+
+export PATH
+
+echo $PATH
