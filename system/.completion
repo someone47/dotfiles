@@ -1,0 +1,6 @@
+# .completion
+
+
+# bash
+
+is-executable brew  &&  [ -f $(brew --prefix)/etc/bash_completion ]  &&  source $(brew --prefix)/etc/bash_completion
