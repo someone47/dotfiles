@@ -24,10 +24,12 @@ PATH="$DOTFILES_DIR/bin:$PATH"
 
 # --- Source the dotfiles
 
-for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,completion,grep,prompt,nvm,jenv,iterm2,custom}; do
+for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,completion,grep,prompt,nvm,jenv,iterm2}; do
     [ -r "$DOTFILE" ] && [ -f "$DOTFILE" ]  &&  source "$DOTFILE"
 done
 unset DOTFILE;
+
+[ -r "$HOME/.custom" ] && [ -f "$HOME/.custom" ]  &&  source "$HOME/.custom"
 
 
 # --- Export environment variables
