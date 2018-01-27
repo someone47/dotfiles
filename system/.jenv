@@ -1,0 +1,12 @@
+# .jenv
+
+# jEnv is a command line tool to help you forget how to set the JAVA_HOME
+# environment variable
+# http://www.jenv.be/
+#
+# jenv must be appear in PATH before Maven otherwise the jenv shims will
+# not work
+
+eval "$(jenv init -)"
+
+echo jenv
