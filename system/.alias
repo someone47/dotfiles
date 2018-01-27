@@ -1,26 +1,37 @@
 # .alias
 
+# --- Shortcuts
+
+alias g="git"                   # g: git
+alias e=$EDITOR                 # e: start text editor
+alias f='open -a Finder ./'     # f: open current folder in Finder
+
+
+# --- List declared aliases, functions, paths
+
+alias aliases="alias | sed 's/=.*//'"
+alias functions="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
+alias paths='echo -e ${PATH//:/\\n}'
+
+
+# --- Directory listing/traversal
+
 # a - all, h - human readable, l - long
-# F: / = directory, * = executable, @ = symlink, = = socket, % = whiteout, | = FIFO, G = Color
+# F: / = directory, * = executable, @ = symlink, = = socket,
+# % = whiteout, | = FIFO, G = Color
 alias dir='ls -FGlah'
 alias l='ls -FGlah'
-
 alias ll="ls -l"
 alias la="ls -a"
 
-# up 'n' folders
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias -- -="cd -"                  # Go to previous dir with -
+
 
 # n: Neues Terminal im gleichem Verzeichnis oeffen (new/openhere)
 alias n='open -a /Applications/Utilities/Terminal.app .'
-
-# f: Aktuelles Verzeichnis im Finder oeffnen
-alias f='open -a Finder ./'
-
-# e: Text Editor oeffnen
-alias e=$EDITOR
 
 # vim: use MacVim instead of the system vim
 alias vim='mvim -v'
@@ -33,3 +44,6 @@ alias uuid='uuidgen'
 
 # guid: generate a uuid with all lowercase letters
 alias guid='uuidgen | tr "[:upper:]" "[:lower:]"'
+
+# hub wraps git and adds features for working with GitHub
+is-executable hub  &&  eval "$(hub alias -s)"
