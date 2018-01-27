@@ -1,0 +1,31 @@
+# .alias.macos
+
+alias cask="brew cask"
+
+# f: open current folder in Finder
+alias f='open -a Finder ./'
+
+# n: Neues Terminal im gleichem Verzeichnis oeffen (new/openhere)
+alias n='open -a /Applications/Utilities/Terminal.app .'
+
+# vim: use MacVim instead of the system vim
+alias vim='mvim -v'
+
+# Copy pwd to clipboard
+alias cpwd="pwd|tr -d '\n'|pbcopy"
+
+# Exclude macOS specific files in ZIP archives
+alias zip="zip -x *.DS_Store -x *__MACOSX* -x *.AppleDouble*"
+
+# Start screen saver
+alias afk="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
+
+# Quick-Look preview files from the command line
+alias ql="qlmanage -p &>/dev/null"
+
+# Recursively remove Apple meta files
+alias cleanupds="find . -type f -name '*.DS_Store' -ls -exec /bin/rm {} \;"
+alias cleanupad="find . -type d -name '.AppleD*' -ls -exec /bin/rm -r {} \;"
+
+# Update brew
+alias brewup='brew update; brew upgrade; brew cleanup'

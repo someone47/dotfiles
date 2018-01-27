@@ -4,7 +4,6 @@
 
 alias g="git"                           # g: git
 alias e=$EDITOR                         # e: start text editor
-alias f='open -a Finder ./'             # f: open current folder in Finder
 
 
 # --- List declared aliases, functions, paths
@@ -31,12 +30,6 @@ alias ....='cd ../../..'
 alias -- -="cd -"                       # Go to previous dir with -
 alias ~="cd ~"                          # Go to home directory
 
-
-# n: Neues Terminal im gleichem Verzeichnis oeffen (new/openhere)
-alias n='open -a /Applications/Utilities/Terminal.app .'
-
-# vim: use MacVim instead of the system vim
-alias vim='mvim -v'
 
 # gitg: aktuellen Branch als Graph
 alias gitg='git log --graph --decorate --oneline'
