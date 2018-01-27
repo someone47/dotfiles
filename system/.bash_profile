@@ -28,6 +28,12 @@ PATH="$DOTFILES_DIR/bin:$PATH"
 for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,completion,grep,prompt,nvm,jenv,iterm2}; do
     [ -r "$DOTFILE" ] && [ -f "$DOTFILE" ]  &&  source "$DOTFILE"
 done
+
+if is-macos; then
+    for DOTFILE in "$DOTFILES_DIR"/system/.{env,alias,function}.macos; do
+        [ -r "$DOTFILE" ] && [ -f "$DOTFILE" ]  &&  source "$DOTFILE"
+    done
+fi
 unset DOTFILE;
 
 [ -r "$HOME/.custom" ] && [ -f "$HOME/.custom" ]  &&  source "$HOME/.custom"
