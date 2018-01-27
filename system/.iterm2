@@ -1,0 +1,17 @@
+# .iterm2
+
+# iTerm2 is a replacement for Terminal and the successor to iTerm.
+# https://www.iterm2.com/
+
+
+if [ -f "$HOME/.iterm2_shell_integration.bash" ] ; then
+
+    source "$HOME/.iterm2_shell_integration.bash"
+
+    # Define user variable for iTerm2
+    function iterm2_print_user_vars() {
+        # use as batch with \(user.gitBranch)
+        iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
+    }
+fi
+
