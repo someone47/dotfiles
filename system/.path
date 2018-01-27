@@ -1,23 +1,23 @@
 # .path
 
+export DOTFILES_BREW_PREFIX_COREUTILS=`brew --prefix coreutils`
+
 # System
-prepend-path "/sbin"
 prepend-path "/bin"
-prepend-path "/usr/sbin"
 prepend-path "/usr/bin"
-prepend-path "/usr/local/sbin"
 prepend-path "/usr/local/bin"
+prepend-path "$DOTFILES_BREW_PREFIX_COREUTILS/libexec/gnubin"
+prepend-path "$DOTFILES_DIR/bin"
+prepend-path "$HOME/bin"
+prepend-path "/sbin"
+prepend-path "/usr/sbin"
+prepend-path "/usr/local/sbin"
 
 # Ruby gems (e.g. Asciidoctor)
 prepend-path "$HOME/.gem/bin"
 
 # Maven (Java build tool)
 prepend-path "$HOME/dev/java/prog/maven/current/bin"
-
-# Personal commands
-prepend-path "$DOTFILES_DIR/bin"
-prepend-path "$HOME/bin"
-
 
 # What do we do with path_helper?
 # path_helper (macOS Tool)
