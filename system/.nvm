@@ -1,0 +1,14 @@
+# .nvm
+
+# Node Version Manager
+# Simple bash script to manage multiple active node.js versions
+# https://github.com/creationix/nvm
+
+
+export NVM_DIR="$HOME/dev/nvm"
+
+[ -f "$NVM_DIR/nvm.sh" ]  &&  source "$NVM_DIR/nvm.sh"
+
+# Bash completion
+
+[ -f "$NVM_DIR/bash_completion" ]  &&  source "$NVM_DIR/bash_completion"
