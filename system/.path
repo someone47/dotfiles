@@ -1,5 +1,6 @@
 # .path
 
+# System
 prepend-path "/sbin"
 prepend-path "/bin"
 prepend-path "/usr/sbin"
@@ -7,9 +8,13 @@ prepend-path "/usr/bin"
 prepend-path "/usr/local/sbin"
 prepend-path "/usr/local/bin"
 
+# Ruby gems (e.g. Asciidoctor)
 prepend-path "$HOME/.gem/bin"
+
+# Maven (Java build tool)
 prepend-path "$HOME/dev/java/prog/maven/current/bin"
 
+# Personal commands
 prepend-path "$DOTFILES_DIR/bin"
 prepend-path "$HOME/bin"
 
