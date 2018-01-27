@@ -8,5 +8,3 @@
 # not work
 
 eval "$(jenv init -)"
-
-echo jenv
