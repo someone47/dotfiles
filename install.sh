@@ -18,3 +18,5 @@ ln -sfv "$DOTFILES_DIR/system/.bash_profile" ~
 ln -sfv "$DOTFILES_DIR/system/.inputrc" ~
 ln -sfv "$DOTFILES_DIR/git/.gitconfig" ~
 ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
+
+[ -f "$HOME/.gitconfig.local" ]  ||  cp "$DOTFILES_DIR/git/.gitconfig.local" ~

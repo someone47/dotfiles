@@ -17,6 +17,7 @@ if [ ! -d "$DOTFILES_DIR" ] ; then
     return
 fi
 
+
 # --- Make utilities available
 
 PATH="$DOTFILES_DIR/bin:$PATH"
