@@ -1,6 +1,9 @@
 # .alias.macos
 
+# Homebrew
 alias cask="brew cask"
+alias brewup='brew update; brew upgrade; brew cleanup'
+alias caskup='brew cu'
 
 # f: open current folder in Finder
 alias f='open -a Finder ./'
@@ -26,6 +29,3 @@ alias ql="qlmanage -p &>/dev/null"
 # Recursively remove Apple meta files
 alias cleanupds="find . -type f -name '*.DS_Store' -ls -exec /bin/rm {} \;"
 alias cleanupad="find . -type d -name '.AppleD*' -ls -exec /bin/rm -r {} \;"
-
-# Update brew
-alias brewup='brew update; brew upgrade; brew cleanup'
