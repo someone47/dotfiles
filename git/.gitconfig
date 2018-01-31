@@ -14,7 +14,7 @@
     rebase = true
 
 [commit]
-	template = /Users/olaf.prins/.stCommitMsg
+    template = ~/.stCommitMsg
 
 [alias]
     co = checkout
@@ -39,6 +39,9 @@
 [mergetool]
     keepBackup = false
 
+[difftool "p4mergetool"]
+    cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
+
 [mergetool "p4mergetool"]
     cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$LOCAL $PWD/$REMOTE $PWD/$MERGED
     keepBackup = false
@@ -46,16 +49,13 @@
     keepTemporaries = false
     trustExitCode = false
 
-[difftool "p4mergetool"]
-    cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
+[difftool "sourcetree"]
+    cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
+    path =
 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+    trustExitCode = true
 
 [filter "lfs"]
     clean = git-lfs clean -- %f
