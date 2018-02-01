@@ -2,6 +2,7 @@
 
 # --- Shortcuts
 
+alias reload="source ~/.bash_profile"
 alias g="git"                           # g: git
 alias e=$EDITOR                         # e: start text editor
 
@@ -30,6 +31,14 @@ alias ....='cd ../../..'
 alias -- -="cd -"                       # Go to previous dir with -
 alias ~="cd ~"                          # Go to home directory
 
+# -a           - show hidden files (beginning with a dot)
+# -C           - use colors
+# -I <pattern> - do not show files conforming to this pattern
+# --dirsfirst  - show folders before files
+alias tri="tree -a -F -I '.git|node_modules|bower_components' --dirsfirst"
+alias trid="tri -d"
+alias trid2="tri -d -L 2"
+alias trid3="tri -d -L 3"
 
 # gitg: aktuellen Branch als Graph
 alias gitg='git log --graph --decorate --oneline'
