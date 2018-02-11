@@ -28,4 +28,6 @@ ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
 # Package managers & packages
 
 source "$DOTFILES_DIR/install/brew.sh"
+source "$DOTFILES_DIR/install/brew-packages.sh"
+source "$DOTFILES_DIR/install/brew-cask.sh"
 
