@@ -54,3 +54,6 @@ is-executable hub  &&  eval "$(hub alias -s)"
 
 # Copy public key to clipboard:
 alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+
+# Show local ip:
+alias localip="ipconfig getifaddr en0"
