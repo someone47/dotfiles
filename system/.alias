@@ -25,6 +25,10 @@ alias l='ls -FGlah'
 alias ll="ls -l"
 alias la="ls -a"
 
+# exa
+# https://github.com/ogham/exa
+alias lx="exa -abghl --git --color=automatic"
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
