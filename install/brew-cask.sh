@@ -26,6 +26,7 @@ apps=(
     firefox
     font-fira-code
     google-chrome
+    iTerm2
     java
     java8
     opera
