@@ -5,7 +5,7 @@ if ! is-macos -o ! is-executable brew; then
     return
 fi
 
-echo "Installing Homebrew packages"
+echo "Installing Homebrew Cask packages"
 
 # brew-cask-upgrade is a command-line tool for upgrading every
 # outdated app installed by Homebrew Cask.
