@@ -19,4 +19,13 @@ ln -sfv "$DOTFILES_DIR/system/.inputrc" ~
 ln -sfv "$DOTFILES_DIR/git/.gitconfig" ~
 ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
 
+
+# Copy file templates
+
 [ -f "$HOME/.gitconfig.local" ]  ||  cp "$DOTFILES_DIR/git/.gitconfig.local" ~
+
+
+# Package managers & packages
+
+source "$DOTFILES_DIR/install/brew.sh"
+
