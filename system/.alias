@@ -51,3 +51,6 @@ alias guid='uuidgen | tr "[:upper:]" "[:lower:]"'
 
 # hub wraps git and adds features for working with GitHub
 is-executable hub  &&  eval "$(hub alias -s)"
+
+# Copy public key to clipboard:
+alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
