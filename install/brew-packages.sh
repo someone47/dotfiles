@@ -9,6 +9,7 @@ echo "Installing Homebrew packages"
 
 apps=(
     autoconf
+    bash
     bash-completion
     cmake
     coreutils
@@ -43,6 +44,7 @@ apps=(
     wget
     wifi-password
     yarn
+    z
 )
 
 brew update
