@@ -40,7 +40,6 @@ apps=(
     tree
     unar
     unrar
-    vivaldi
     wget
     wifi-password
     yarn

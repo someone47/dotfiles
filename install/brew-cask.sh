@@ -38,6 +38,7 @@ apps=(
     transmission
     virtualbox
     visual-studio-code
+    vivaldi
     vlc
     whatsapp
 )
