@@ -38,6 +38,7 @@ apps=(
     scala
     ssh-copy-id
     subversion
+    thefuck
     tree
     unar
     unrar
