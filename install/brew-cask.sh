@@ -22,13 +22,17 @@ brew tap caskroom/versions
 apps=(
     atom
     chromium
+    disk-inventory-x
     dropbox
+    enpass
     firefox
+    focuswriter
     font-fira-code
     google-chrome
     iTerm2
     java
     java8
+    keepassx
     opera
     p4merge
     postman
