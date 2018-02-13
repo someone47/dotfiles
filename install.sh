@@ -5,6 +5,7 @@
 
 export DOTFILES_DIR
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_CACHE="$DOTFILES_DIR/.cache.sh"
 
 
 # Make utilities available
@@ -30,4 +31,4 @@ ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
 source "$DOTFILES_DIR/install/brew.sh"
 source "$DOTFILES_DIR/install/brew-packages.sh"
 source "$DOTFILES_DIR/install/brew-cask.sh"
-
+source "$DOTFILES_DIR/install/node.sh"

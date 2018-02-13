@@ -23,6 +23,12 @@ fi
 PATH="$DOTFILES_DIR/bin:$PATH"
 
 
+# --- Read environment variable from cache
+
+DOTFILES_CACHE="$DOTFILES_DIR/.cache.sh"
+[ -f "$DOTFILES_CACHE" ]  &&  source "$DOTFILES_CACHE"
+
+
 # --- Source the dotfiles
 
 for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,completion,grep,prompt,nvm,jenv,iterm2,misc}; do

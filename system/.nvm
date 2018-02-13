@@ -1,14 +1,18 @@
 # .nvm
 
+if [ ! -f "$DOTFILES_BREW_PREFIX_NVM/nvm.sh" ]; then
+    echo "Skipped: .nvm (missing: $DOTFILES_BREW_PREFIX_NVM/nvm.sh)"
+    return
+fi
+
 # Node Version Manager
 # Simple bash script to manage multiple active node.js versions
 # https://github.com/creationix/nvm
 
 
-export NVM_DIR="$HOME/dev/nvm"
+export NVM_DIR=~/.nvm
 
-[ -f "$NVM_DIR/nvm.sh" ]  &&  source "$NVM_DIR/nvm.sh"
+source "$DOTFILES_BREW_PREFIX_NVM/nvm.sh"
 
 # Bash completion
-
 [ -f "$NVM_DIR/bash_completion" ]  &&  source "$NVM_DIR/bash_completion"
