@@ -23,4 +23,3 @@ echo "Installing Node"
 source "${DOTFILES_DIR}/system/.nvm"
 nvm install 8
 nvm alias default 8
-
