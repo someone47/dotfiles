@@ -1,7 +1,5 @@
 # .path
 
-export DOTFILES_BREW_PREFIX_COREUTILS=`brew --prefix coreutils`
-
 # System
 prepend-path "/bin"
 prepend-path "/usr/bin"
