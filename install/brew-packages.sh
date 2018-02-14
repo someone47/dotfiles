@@ -26,6 +26,7 @@ apps=(
     kotlin
     lame
     leiningen
+    maven-completion
     neovim
     openconnect
     openssl
