@@ -1,0 +1,9 @@
+# .function.macos
+
+# manpdf - Open man page as PDF
+# $1: a command
+# e.g.
+# > manpdf ls
+function manpdf() {
+    man -t "$1" | open -f -a /Applications/Preview.app/
+}
