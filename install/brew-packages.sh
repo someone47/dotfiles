@@ -47,6 +47,8 @@ apps=(
     wifi-password
     yarn
     z
+    zsh
+    zsh-completions
 )
 
 brew update
