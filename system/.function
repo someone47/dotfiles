@@ -10,11 +10,12 @@ function mcd() {
 # prepend-path - Puts the given directory at the start of the PATH
 # $1: a directory
 # e.g. > prepend-path "/sbin"
-prepend-path() {
+function prepend-path() {
     [ -d $1 ]  &&  PATH="$1:$PATH"
 }
 
-# Determine size of a file or total size of a directory
+# fs - Determine size of a file or total size of a directory
+# $1: a file or a directory
 # e.g.
 # > fs temp
 # 17G  temp
@@ -31,8 +32,8 @@ function fs() {
     fi;
 }
 
-# cd into whatever is the forefront Finder window.
-function cdf () {
+# cdf - cd into whatever is the forefront Finder window.
+function cdf() {
     local path=$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')
     echo "$path"
     cd "$path"
