@@ -1,4 +1,6 @@
 # .inputrc
+# Behavior of line input editing and keybindings
+
 
 # Make Tab autocomplete regardless of filename case
 set completion-ignore-case on
