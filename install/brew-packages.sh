@@ -14,6 +14,7 @@ apps=(
     cmake
     coreutils
     exa
+    fasd
     ffmpeg
     gettext
     git
