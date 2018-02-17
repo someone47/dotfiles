@@ -23,6 +23,7 @@ apps=(
     atom
     chromium
     disk-inventory-x
+    dotnet-sdk
     dropbox
     enpass
     firefox
