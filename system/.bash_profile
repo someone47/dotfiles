@@ -32,11 +32,7 @@ DOTFILES_CACHE="$DOTFILES_DIR/.cache.sh"
 # --- Source the dotfiles
 
 for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,completion,prompt,nvm,jenv,iterm2,fasd,misc}; do
-    #START=$(date +%s.%N)
     [ -r "$DOTFILE" ] && [ -f "$DOTFILE" ]  &&  source "$DOTFILE"
-    #END=$(date +%s.%N)
-    #RUNTIME=$(python -c "print(${END} - ${START})")
-    #echo -e "$RUNTIME \t $DOTFILE"
 done
 
 if is-macos; then

@@ -1,7 +1,7 @@
 # .nvm
 
-if [ ! -f "$DOTFILES_BREW_PREFIX_NVM/nvm.sh" ]; then
-    echo "Skipped: .nvm (missing: $DOTFILES_BREW_PREFIX_NVM/nvm.sh)"
+if [ ! -f "$HOME/.nvm/nvm.sh" ]; then
+    echo "Skipped: .nvm (missing: $HOME/.nvm/nvm.sh)"
     return
 fi
 
@@ -12,7 +12,8 @@ fi
 
 export NVM_DIR="$HOME/.nvm"
 
-source "$DOTFILES_BREW_PREFIX_NVM/nvm.sh"
+# Activate nvm
+source "$NVM_DIR/nvm.sh"
 
-# Bash completion
+# Bash completion for nvm
 [ -f "$NVM_DIR/bash_completion" ]  &&  source "$NVM_DIR/bash_completion"

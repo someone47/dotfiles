@@ -31,5 +31,6 @@ ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
 source "$DOTFILES_DIR/install/brew.sh"
 source "$DOTFILES_DIR/install/brew-packages.sh"
 source "$DOTFILES_DIR/install/brew-cask.sh"
-source "$DOTFILES_DIR/install/node.sh"
-source "$DOTFILES_DIR/install/node-packages.sh"
+source "$DOTFILES_DIR/install/install-nvm.sh"
+source "$DOTFILES_DIR/install/install-node.sh"
+source "$DOTFILES_DIR/install/install-node-packages.sh"
