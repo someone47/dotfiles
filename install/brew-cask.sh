@@ -21,6 +21,7 @@ brew tap caskroom/versions
 
 apps=(
     atom
+    boostnote
     chromium
     disk-inventory-x
     dotnet-sdk
