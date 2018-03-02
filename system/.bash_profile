@@ -32,7 +32,11 @@ DOTFILES_CACHE="$DOTFILES_DIR/.cache.sh"
 # --- Source the dotfiles
 
 for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,completion,prompt,nvm,jenv,iterm2,fasd,misc}; do
+    #start_ms=$(ruby -e 'puts (Time.now.to_f * 1000).to_i')
     [ -r "$DOTFILE" ] && [ -f "$DOTFILE" ]  &&  source "$DOTFILE"
+    #end_ms=$(ruby -e 'puts (Time.now.to_f * 1000).to_i')
+    #elapsed_ms=$((end_ms - start_ms))
+    #echo "$elapsed_ms ms $DOTFILE"
 done
 
 if is-macos; then
