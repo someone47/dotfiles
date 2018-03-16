@@ -23,6 +23,7 @@ apps=(
     atom
     boostnote
     chromium
+    dbvisualizer
     disk-inventory-x
     dotnet-sdk
     dropbox
@@ -38,6 +39,7 @@ apps=(
     opera
     p4merge
     postman
+    soapui
     sourcetree
     spotify
     sublime-text
