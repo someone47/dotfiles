@@ -33,8 +33,8 @@ apps=(
     font-fira-code
     google-chrome
     iTerm2
-    java
     java8
+    java9
     keepassx
     opera
     p4merge
