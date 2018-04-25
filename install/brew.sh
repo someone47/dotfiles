@@ -14,5 +14,8 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 brew tap Goles/battery
 
+# Spring from Pivotal
+brew tap pivotal/tap
+
 brew update
 brew upgrade
