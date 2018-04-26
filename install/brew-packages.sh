@@ -38,7 +38,6 @@ apps=(
     rsync
     sbt
     scala
-    spring-completion
     springboot
     ssh-copy-id
     subversion
