@@ -11,6 +11,7 @@ apps=(
     autoconf
     bash
     bash-completion
+    brew-cask-completion
     cmake
     coreutils
     exa
