@@ -3,13 +3,18 @@
 
 # -- Prompt Command function
 
-# Zeile 0; Error-Code des letzten Befehls:  Error Code: 123
-# Zeile 1; User, Computer, Pfad:            [olaf@MacBookAir::~]
-# Zeile 3; Prompt:                          └─▶
+# Line 0: error code of the last command, only when error code is not 0
+# Line 1: user, host name, path, git branch
+# Line 3: prompt
 #
-# Zeile 0 wird nur dargestellt, wenn der Fehlercode nicht 0 ist.
+# Example:
 #
-# Prompt in .bash_profile aktivieren mit
+#     Error Code: 123
+#     [olaf@MacBookAir::~] (master)
+#     └─▶ _
+#
+#
+# Activate prompt by including this in .bash_profile
 #
 #     [[ -f "$HOME/.my_bash_prompt.sh" ]] && source "$HOME/.my_bash_prompt.sh"
 #     PROMPT_COMMAND=my_prompt_command
@@ -23,6 +28,15 @@
 #   https://dev.to/gonedark/tweak-your-terminal-for-git
 #   https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
 # - Akitivieren von Prompt in .bash_profile mit in if-Abfrage
+
+
+# Print name of current git branch
+# see
+# - https://martinfitzpatrick.name/article/add-git-branch-name-to-terminal-prompt-mac/
+# - https://gist.github.com/joseluisq/1e96c54fa4e1e5647940
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
 
 my_prompt_command () {
 
@@ -84,7 +98,7 @@ my_prompt_command () {
     # \n - new line
 
     line0="${R}${ERRPROMPT}"
-    line1="${EMP}[\u@\h:\w]\n"
+    line1="${EMP}[\u@\h:\w]${EMK}\$(parse_git_branch)${EMP}\n"
     line2="└─▶${RST} "
 
     export PS1="${line0}${line1}${line2}"
