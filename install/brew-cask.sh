@@ -56,4 +56,4 @@ brew upgrade
 
 brew cask install "${apps[@]}"
 
-brew cask cleanup
+brew cleanup
