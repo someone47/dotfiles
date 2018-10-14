@@ -16,6 +16,7 @@ apps=(
     coreutils
     exa
     fasd
+    fish
     ffmpeg
     gettext
     git
