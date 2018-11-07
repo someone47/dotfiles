@@ -22,6 +22,7 @@ apps=(
     git
     glances
     gnutls
+    golang
     gradle
     hub
     httpie
