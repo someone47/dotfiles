@@ -39,6 +39,11 @@ for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,compl
     #echo "$elapsed_ms ms $DOTFILE"
 done
 
+# Enable iTerm integration only when running in iTerm
+if [[ $TERM_PROGRAM == *"iTerm"* ]]; then
+    [ -r ".iterm2" ] && [ -f ".iterm2" ]  &&  source ".iterm2"
+fi
+
 if is-macos; then
     for DOTFILE in "$DOTFILES_DIR"/system/.{env,alias,function}.macos; do
         [ -r "$DOTFILE" ] && [ -f "$DOTFILE" ]  &&  source "$DOTFILE"
