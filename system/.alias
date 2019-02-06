@@ -29,11 +29,16 @@ alias la="ls -a"
 # https://github.com/ogham/exa
 alias lx="exa -abghl --git --color=automatic"
 
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias -- -="cd -"                       # Go to previous dir with -
-alias ~="cd ~"                          # Go to home directory
+alias cd..='cd ../'                 # cd..  go back 1 directory level
+alias ..='cd ../'                   # ..    go back 1 directory level
+alias ...='cd ../../'               # ...   go back 2 directory levels
+alias .2='cd ../../'                # .2    go back 2 directory levels
+alias .3='cd ../../../'             # .3    go back 3 directory levels
+alias .4='cd ../../../../'          # .4    go back 4 directory levels
+alias .5='cd ../../../../../'       # .5    go back 5 directory levels
+alias .6='cd ../../../../../../'    # .6    go back 6 directory levels
+alias ~="cd ~"                      # ~     go to home directory
+alias -- -="cd -"                   # -     go to last directory (cd -)
 
 # -a           - show hidden files (beginning with a dot)
 # -C           - use colors
