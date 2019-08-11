@@ -17,5 +17,8 @@ brew tap Goles/battery
 # Spring from Pivotal
 brew tap pivotal/tap
 
+# Fira Font
+brew tap homebrew/cask-fonts
+
 brew update
 brew upgrade

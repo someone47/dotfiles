@@ -13,7 +13,6 @@ echo "Installing Homebrew Cask packages"
 brew tap buo/cask-upgrade
 
 brew tap caskroom/cask
-brew tap caskroom/fonts
 brew tap caskroom/versions
 
 
@@ -36,6 +35,7 @@ apps=(
     java8
     java9
     keepassx
+    keepassxc
     opera
     p4merge
     postman
