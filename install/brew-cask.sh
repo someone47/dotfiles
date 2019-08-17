@@ -13,7 +13,6 @@ echo "Installing Homebrew Cask packages"
 brew tap buo/cask-upgrade
 
 brew tap caskroom/cask
-brew tap caskroom/versions
 
 
 # Install packages
