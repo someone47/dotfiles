@@ -15,6 +15,14 @@ PATH="$DOTFILES_DIR/bin:$PATH"
 
 # Install some symlinks
 
+# create .config folder and do not complain when is already exists (-p)
+mkdir -p $HOME/.config
+ln -sfv "$DOTFILES_DIR/config/nvim" ~/.config
+
+# ln options
+# -s  create a symbolic link
+# -f  if the target file already exists, then unlink it so that the link may occur
+# -v  verbose, showing files as they are processed
 ln -sfv "$DOTFILES_DIR/system/.bash_profile" ~
 ln -sfv "$DOTFILES_DIR/system/.inputrc" ~
 ln -sfv "$DOTFILES_DIR/git/.gitconfig" ~
