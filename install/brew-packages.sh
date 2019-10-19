@@ -48,6 +48,7 @@ apps=(
     tree
     unar
     unrar
+    vim
     wget
     wifi-password
     yarn
