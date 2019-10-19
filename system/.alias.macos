@@ -11,9 +11,6 @@ alias f='open -a Finder ./'
 # n: Neues Terminal im gleichem Verzeichnis oeffen (new/openhere)
 alias n='open -a /Applications/Utilities/Terminal.app .'
 
-# vim: use MacVim instead of the system vim
-alias vim='mvim -v'
-
 # Copy pwd to clipboard
 alias cpwd="pwd|tr -d '\n'|pbcopy"
 
