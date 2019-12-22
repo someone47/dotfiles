@@ -4,3 +4,6 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion
 fi
 
+# Tab completion for kubectl and for its alias k
+source <(kubectl completion bash)
+source <(kubectl completion bash | sed s/kubectl/k/g)
