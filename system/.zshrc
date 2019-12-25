@@ -41,14 +41,14 @@ setopt NO_CASE_GLOB
 # Change directory by entering the path to a directory without the leading cd
 setopt AUTO_CD
 
-# Correction
+# Corrections
 # % Dekstop
 # zsh: correct 'Dekstop' to 'Desktop' [nyae]?
 # n: execute as typed
 # y: accept and execute the suggested correction
 # a: abort and do nothing
 # e: return to the prompt to continue editing
-unsetopt CORRECT
+setopt CORRECT
 
 
 
