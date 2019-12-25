@@ -32,8 +32,8 @@ DOTFILES_CACHE="$DOTFILES_DIR/.cache.sh"
 # --- Source the dotfiles
 
 # bash prompt is suboptimal: error hint even when eror code is 0
-#for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,completion,prompt,nvm,jenv,fasd,misc}; do
-for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,completion,nvm,jenv,fasd,misc}; do
+for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,completion,prompt,nvm,jenv,fasd,misc}; do
+#for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,completion,nvm,jenv,fasd,misc}; do
     #start_ms=$(ruby -e 'puts (Time.now.to_f * 1000).to_i')
     [ -r "$DOTFILE" ] && [ -f "$DOTFILE" ]  &&  source "$DOTFILE"
     #end_ms=$(ruby -e 'puts (Time.now.to_f * 1000).to_i')
