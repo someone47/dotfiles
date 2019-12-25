@@ -1,10 +1,96 @@
 # .zshrc
 
+
 ###
 ###  dotfiles
 ###
 
 export DOTFILES_DIR=$HOME/.dotfiles
+
+
+
+###
+###  System settings
+###
+
+# Default text editor
+export EDITOR="code"
+
+# Prefer US English and use UTF-8
+export LANG=en_US.UTF-8
+
+# Encoding for Subversion Repository of Textmate bundels
+# http://manual.macromates.com/en/bundles#getting_more_bundles
+export LC_CTYPE=en_US.UTF-8
+
+# Enable colors
+# see http://osxdaily.com/2013/02/05/improve-terminal-appearance-mac-os-x/
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
+
+
+###
+###  ZSH settings
+###
+
+# Case Insensitive Globbing (expansion of wildcard characters,
+# such as * and ? into full file paths and names)
+setopt NO_CASE_GLOB
+
+# Change directory by entering the path to a directory without the leading cd
+setopt AUTO_CD
+
+# Correction
+# % Dekstop
+# zsh: correct 'Dekstop' to 'Desktop' [nyae]?
+# n: execute as typed
+# y: accept and execute the suggested correction
+# a: abort and do nothing
+# e: return to the prompt to continue editing
+unsetopt CORRECT
+
+
+
+###
+###  History configuration
+###
+
+# Where to save history to disk
+HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+
+# How many lines of history to keep in memory
+HISTSIZE=2000
+
+# Number of history entries to save to disk
+SAVEHIST=5000
+
+# Adds commands as they are typed, not at shell exit
+setopt INC_APPEND_HISTORY
+
+# Share history across multiple zsh sessions
+setopt SHARE_HISTORY
+
+# Append to history
+setopt APPEND_HISTORY
+
+# Do not store duplications
+setopt HIST_IGNORE_DUPS
+
+# Delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt HIST_EXPIRE_DUPS_FIRST
+
+# Removes blank lines from history
+setopt HIST_REDUCE_BLANKS
+
+# Record more data (timestamp in unix epoch time, elapsed time of the command)
+setopt EXTENDED_HISTORY
+
+# Show command with history expansion to user before running it (e.g. using !!)
+setopt HIST_VERIFY
+
+# Ignore commands that start with space
+setopt HIST_IGNORE_SPACE
 
 
 
@@ -45,8 +131,8 @@ alias la="ls -a"
 # https://github.com/ogham/exa
 alias lx="exa -abghl --git --color=automatic"
 
-alias ~="cd ~"                      # ~     go to home directory
-alias -- -="cd -"                   # -     go to last directory (cd -)
+alias ~="cd ~"       # ~: go to home directory
+alias -- -="cd -"    # -: go to last directory (cd -)
 
 # Trees
 # -a           - show hidden files (beginning with a dot)
@@ -170,70 +256,6 @@ function manpdf() {
 
 
 ###
-###  History configuration
-###
-
-# Where to save history to disk
-HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
-
-# How many lines of history to keep in memory
-HISTSIZE=2000
-
-# Number of history entries to save to disk
-SAVEHIST=5000
-
-# Adds commands as they are typed, not at shell exit
-setopt INC_APPEND_HISTORY
-
-# Share history across multiple zsh sessions
-setopt SHARE_HISTORY
-
-# Append to history
-setopt APPEND_HISTORY
-
-# Do not store duplications
-setopt HIST_IGNORE_DUPS
-
-# Delete duplicates first when HISTFILE size exceeds HISTSIZE
-setopt HIST_EXPIRE_DUPS_FIRST
-
-# Removes blank lines from history
-setopt HIST_REDUCE_BLANKS
-
-# Record more data (timestamp in unix epoch time, elapsed time of the command)
-setopt EXTENDED_HISTORY
-
-# Show command with history expansion to user before running it (e.g. using !!)
-setopt HIST_VERIFY
-
-# Ignore commands that start with space
-setopt HIST_IGNORE_SPACE
-
-
-
-###
-###  Miscellaneous
-###
-
-# Case Insensitive Globbing (expansion of wildcard characters,
-# such as * and ? into full file paths and names)
-setopt NO_CASE_GLOB
-
-# Change directory by entering the path to a directory without the leading cd
-setopt AUTO_CD
-
-# Correction
-# % Dekstop
-# zsh: correct 'Dekstop' to 'Desktop' [nyae]?
-# n: execute as typed
-# y: accept and execute the suggested correction
-# a: abort and do nothing
-# e: return to the prompt to continue editing
-unsetopt CORRECT
-
-
-
-###
 ###  Prompt
 ###
 
@@ -254,14 +276,21 @@ PROMPT='%(?..%F{red}?%? )%f%B%F{magenta}%~%f%b %# '
 
 
 ###
-###  Path
+###  Path part 1
 ###
 
 path+="$HOME/bin"
 path+="$HOME/.local/bin"
-path+="$HOME/Library/Python/3.7/bin"
-path+="$HOME/dev/go-workspace/bin"
 path+="$DOTFILES_DIR/bin"
+
+
+
+###
+###  Key Bindings
+###
+
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
 
 
 
@@ -286,11 +315,96 @@ autoload bashcompinit && bashcompinit
 
 
 ###
-###  Key Bindings
+###  jEnv
 ###
 
-bindkey '^[[A' up-line-or-search
-bindkey '^[[B' down-line-or-search
+# jEnv is a command line tool to help you forget how to set the JAVA_HOME
+# environment variable (http://www.jenv.be/).
+# jenv must be appear in PATH before Maven otherwise the jenv shims will
+# not work.
+
+eval "$(jenv init -)"
+
+
+
+###
+###  NVM - Node Version Manager
+###
+
+# Simple bash script to manage multiple active node.js versions
+# https://github.com/creationix/nvm
+#if [ -f "$HOME/.nvm/nvm.sh" ]; then
+#
+#    export NVM_DIR="$HOME/.nvm"
+#
+#    # Activate nvm
+#    source "$NVM_DIR/nvm.sh"
+#
+#    # Bash completion for nvm
+#    [ -f "$NVM_DIR/bash_completion" ]  &&  source "$NVM_DIR/bash_completion"
+#fi
+
+
+
+###
+###  Miscellaneous
+###
+
+# -- Vim
+
+export VIMCONFIG=$HOME/.config/nvim         # folder with configuration files for Neovim
+export VIMDATA=$HOME/.local/share/nvim      # folder where Neovim stores data
+
+# -- iTerm
+
+# Enable iTerm integration only when running in iTerm
+if [[ $TERM_PROGRAM == *"iTerm"* ]]; then
+    [ -r ".iterm2" ] && [ -f ".iterm2" ]  &&  source ".iterm2"
+fi
+
+# -- Python
+
+path+="$HOME/Library/Python/3.7/bin"
+
+# -- Go
+
+export GOPATH=$HOME/dev/go-workspace
+path+="$GOPATH/bin"
+
+# -- Homebrew
+
+# disables statistics that brew collects
+export HOMEBREW_NO_ANALYTICS=1
+
+# -- Java
+
+# Maven settings
+export MAVEN_OPTS="-Xms512m -Xmx1024m"
+
+# -- .NET Core
+
+# Do not send any telemetry data to Microsoft
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+# Set language of .NET Core commandline tool dotnet to English
+export DOTNET_CLI_UI_LANGUAGE=en
+
+
+
+###
+### Path part 2
+###
+
+# path_helper (macOS Tool) build up the path of /etc/paths, paths.d
+# and the current path environment variable.
+# (see https://scriptingosx.com/2017/05/where-paths-come-from/)
+eval $(/usr/libexec/path_helper -s)
+
+# Remove duplicates (preserving prepended items)
+# Source: http://unix.stackexchange.com/a/40755
+PATH=`echo -n $PATH | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
+
+export PATH
 
 
 
