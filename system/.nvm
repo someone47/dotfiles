@@ -1,19 +1,37 @@
 # .nvm
 
+# Node Version Manager
+# Simple bash script to manage multiple active node.js versions
+# https://github.com/creationix/nvm
+
 if [ ! -f "$HOME/.nvm/nvm.sh" ]; then
     echo "Skipped: .nvm (missing: $HOME/.nvm/nvm.sh)"
     return
 fi
 
-# Node Version Manager
-# Simple bash script to manage multiple active node.js versions
-# https://github.com/creationix/nvm
+
+# Improve startup time of bash shell by delaying initialisation of nvm
+# https://gist.github.com/fl0w/07ce79bd44788f647deab307c94d6922
+# https://www.growingwiththeweb.com/2018/01/slow-nvm-init.html
+# http://broken-by.me/lazy-load-nvm/
+
+lazynvm() {
+    # Deactivate wrapper functions
+    unset -f nvm node npm npx
+
+    export NVM_DIR="$HOME/.nvm"
+
+    # Activate nvm
+    source "$NVM_DIR/nvm.sh"
+
+    # Bash completion for nvm
+    [ -f "$NVM_DIR/bash_completion" ]  &&  source "$NVM_DIR/bash_completion"
+}
 
 
-export NVM_DIR="$HOME/.nvm"
+# Wrapper functions
 
-# Activate nvm
-source "$NVM_DIR/nvm.sh"
-
-# Bash completion for nvm
-[ -f "$NVM_DIR/bash_completion" ]  &&  source "$NVM_DIR/bash_completion"
+nvm() { lazynvm; nvm $@; }
+node() { lazynvm; node $@; }
+npm() { lazynvm; npm $@; }
+npx() { lazynvm; npx $@; }
