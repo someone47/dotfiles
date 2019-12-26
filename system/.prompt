@@ -29,15 +29,6 @@
 #   https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
 # - Akitivieren von Prompt in .bash_profile mit in if-Abfrage
 
-
-# Print name of current git branch
-# see
-# - https://martinfitzpatrick.name/article/add-git-branch-name-to-terminal-prompt-mac/
-# - https://gist.github.com/joseluisq/1e96c54fa4e1e5647940
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
 my_prompt_command () {
 
     local EXIT_CODE=$?
@@ -87,6 +78,11 @@ my_prompt_command () {
         ERRPROMPT='✘ Error Code: $?\n'
     fi
 
+    # Get the name of current git branch, see
+    # - https://martinfitzpatrick.name/article/add-git-branch-name-to-terminal-prompt-mac/
+    # - https://gist.github.com/joseluisq/1e96c54fa4e1e5647940
+    GIT_INFO=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/')
+
     # PS1 codes:
     # \# – Command number
     # \d – Current date
@@ -98,7 +94,7 @@ my_prompt_command () {
     # \n - new line
 
     line0="${R}${ERRPROMPT}"
-    line1="${EMP}[\u@\h:\w]${EMK}\$(parse_git_branch)${EMP}\n"
+    line1="${EMP}[\u@\h:\w]${EMK}\${GIT_INFO}${EMP}\n"
     line2="└─▶${RST} "
 
     export PS1="${line0}${line1}${line2}"
@@ -121,4 +117,3 @@ PROMPT_COMMAND=my_prompt_command
 #   to add it at the end of each colored text.
 # - Wrapping the tput output in \[ \] is recommended by the Bash man page. This helps Bash ignore
 #   non-printable characters so that it correctly calculates the size of the prompt.
-
