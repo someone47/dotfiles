@@ -9,7 +9,7 @@
 
 # --- Resolve DOTFILES_DIR
 
-DOTFILES_DIR=$(dirname "$(dirname "$(readlink "$BASH_SOURCE")")")
+export DOTFILES_DIR=$(dirname "$(dirname "$(readlink "$BASH_SOURCE")")")
 
 if [ ! -d "$DOTFILES_DIR" ] ; then
     echo "Expect .dotfiles to be here: " $DOTFILES_DIR
@@ -52,9 +52,19 @@ if is-macos; then
 fi
 unset DOTFILE;
 
+
+# --- Execute custom commands
+
 [ -r "$HOME/.custom" ] && [ -f "$HOME/.custom" ]  &&  source "$HOME/.custom"
 
 
-# --- Export environment variables
+# --- Final cleanup of path
 
-export DOTFILES_DIR
+# path_helper (macOS Tool) build up the path of /etc/paths, paths.d
+# and the current path environment variable.
+# (see https://scriptingosx.com/2017/05/where-paths-come-from/)
+eval $(/usr/libexec/path_helper -s)
+
+# Remove duplicates (preserving prepended items)
+# Source: http://unix.stackexchange.com/a/40755
+export PATH=`echo -n $PATH | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
