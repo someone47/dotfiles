@@ -333,16 +333,31 @@ eval "$(jenv init -)"
 
 # Simple bash script to manage multiple active node.js versions
 # https://github.com/creationix/nvm
-#if [ -f "$HOME/.nvm/nvm.sh" ]; then
-#
-#    export NVM_DIR="$HOME/.nvm"
-#
-#    # Activate nvm
-#    source "$NVM_DIR/nvm.sh"
-#
-#    # Bash completion for nvm
-#    [ -f "$NVM_DIR/bash_completion" ]  &&  source "$NVM_DIR/bash_completion"
-#fi
+
+if [ -f "$HOME/.nvm/nvm.sh" ]; then
+
+    # Improve startup time of bash shell by delaying initialisation of nvm
+    # https://gist.github.com/fl0w/07ce79bd44788f647deab307c94d6922
+    # https://www.growingwiththeweb.com/2018/01/slow-nvm-init.html
+    # http://broken-by.me/lazy-load-nvm/
+
+    # Lazy-loading nvm + npm on node globals call
+    load_nvm () {
+        export NVM_DIR="$HOME/.nvm"
+        # Activate nvm
+        source "$NVM_DIR/nvm.sh"
+    }
+
+    # Add every binary that requires nvm, npm or node to run to an array of node globals
+    NODE_GLOBALS=(`find $HOME/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
+    NODE_GLOBALS+=("node")
+    NODE_GLOBALS+=("nvm")
+
+    # Making node global trigger the lazy loading
+    for cmd in "${NODE_GLOBALS[@]}"; do
+        eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
+    done
+fi
 
 
 
