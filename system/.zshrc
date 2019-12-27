@@ -427,4 +427,4 @@ export PATH
 ###  Custom extension
 ###
 
-[ -r "$HOME/.custom" ] && [ -f "$HOME/.custom" ]  &&  source "$HOME/.custom"
+[ -r "$HOME/.custom.zsh" ] && [ -f "$HOME/.custom.zsh" ]  &&  source "$HOME/.custom.zsh"

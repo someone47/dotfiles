@@ -55,7 +55,7 @@ unset DOTFILE;
 
 # --- Execute custom commands
 
-[ -r "$HOME/.custom" ] && [ -f "$HOME/.custom" ]  &&  source "$HOME/.custom"
+[ -r "$HOME/.custom.bash" ] && [ -f "$HOME/.custom.bash" ]  &&  source "$HOME/.custom.bash"
 
 
 # --- Final cleanup of path
