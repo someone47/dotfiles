@@ -5,7 +5,6 @@
 alias reload="source ~/.bash_profile"
 alias g=git                             # g: git
 alias e=$EDITOR                         # e: start text editor
-alias k=kubectl                         # k: kubectl
 
 alias vim=nvim                          # Use Neovim instead of Vim
 alias vi=nvim                           # Use Neovim instead of Vi

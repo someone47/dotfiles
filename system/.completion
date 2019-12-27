@@ -4,5 +4,22 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion
 fi
 
-# Tab completion for k, the alias for kubectl
-source <(kubectl completion bash | sed s/kubectl/k/g)
+
+# Improve startup time of bash by defering completion initialization
+# see https://frederic-hemberger.de/articles/speed-up-initial-zsh-startup-with-lazy-loading/
+
+if type kubectl &>/dev/null; then
+
+    # Placeholder/Wrapper 'kubectl' shell function.
+    # Will only be executed on the first call to 'kubectl'
+    kubectl() {
+        # Remove this function, subsequent calls will execute 'kubectl' directly
+        unset -f kubectl
+
+        # Load auto-completion
+        source <(kubectl completion bash)
+
+        # Execute 'kubectl' binary
+        kubectl "$@"
+    }
+fi
