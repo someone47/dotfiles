@@ -1,0 +1,27 @@
+# .kubernetes
+
+alias k=kubectl
+
+
+# Improve startup time of bash by defering completion initialization
+# see https://frederic-hemberger.de/articles/speed-up-initial-zsh-startup-with-lazy-loading/
+
+if type kubectl &>/dev/null; then
+
+    # Placeholder/Wrapper 'kubectl' shell function.
+    # Will only be executed on the first call to 'kubectl'
+    kubectl() {
+        # Remove this function, subsequent calls will execute 'kubectl' directly
+        unset -f kubectl
+
+        # Load auto-completion
+        source <(kubectl completion bash)
+
+        # Provide also the alias for kubectl (k) with tab completion
+        # see https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-macos
+        complete -F __start_kubectl k
+
+        # Execute 'kubectl' binary
+        kubectl "$@"
+    }
+fi

@@ -1,25 +1,10 @@
 # .completion
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    source $(brew --prefix)/etc/bash_completion
-fi
+# This script must be executed before all other scripts with additions for tab completion.
+# See https://itnext.io/programmable-completion-for-bash-on-macos-f81a0103080b
 
+# Include also tab completion scripts in /usr/local/etc/bash_completion.d
+export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 
-# Improve startup time of bash by defering completion initialization
-# see https://frederic-hemberger.de/articles/speed-up-initial-zsh-startup-with-lazy-loading/
-
-if type kubectl &>/dev/null; then
-
-    # Placeholder/Wrapper 'kubectl' shell function.
-    # Will only be executed on the first call to 'kubectl'
-    kubectl() {
-        # Remove this function, subsequent calls will execute 'kubectl' directly
-        unset -f kubectl
-
-        # Load auto-completion
-        source <(kubectl completion bash)
-
-        # Execute 'kubectl' binary
-        kubectl "$@"
-    }
-fi
+# Activate tab completions for basic programs and provide convenience functions for other completion scripts
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"

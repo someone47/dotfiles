@@ -10,8 +10,7 @@ echo "Installing Homebrew packages"
 apps=(
     autoconf
     bash
-    bash-completion
-    brew-cask-completion
+    bash-completion@2
     cmake
     coreutils
     exa
