@@ -314,6 +314,17 @@ autoload bashcompinit && bashcompinit
 
 
 
+# z - jump around
+# Tracks your most used directories, based on 'frecency'.
+# https://github.com/rupa/z
+# https://www.monades.dev/jumping-directories-with-z/
+
+Z_SCRIPT="/usr/local/etc/profile.d/z.sh"
+
+[ -r "$Z_SCRIPT" ] && [ -f "$Z_SCRIPT" ]  &&  source "$Z_SCRIPT"
+
+
+
 ###
 ###  jEnv
 ###
