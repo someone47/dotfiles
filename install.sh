@@ -26,13 +26,11 @@ ln -sfv "$DOTFILES_DIR/config/nvim" ~/.config
 ln -sfv "$DOTFILES_DIR/system/.bash_profile" ~
 ln -sfv "$DOTFILES_DIR/system/.inputrc" ~
 ln -sfv "$DOTFILES_DIR/system/.zshrc" ~
-ln -sfv "$DOTFILES_DIR/git/.gitconfig" ~
-ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
 
-
-# Copy file templates
-
-[ -f "$HOME/.gitconfig.local" ]  ||  cp "$DOTFILES_DIR/git/.gitconfig.local" ~
+# Git files
+ln -sfv "$DOTFILES_DIR/config/git/.gitconfig" ~
+ln -sfv "$DOTFILES_DIR/config/git/.gitignore_global" ~
+[ -f "$HOME/.gitconfig.custom" ]  ||  cp "$DOTFILES_DIR/config/git/.gitconfig.custom" ~
 
 
 # Package managers & packages
