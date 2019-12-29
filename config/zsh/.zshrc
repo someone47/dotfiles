@@ -9,6 +9,20 @@ export DOTFILES_DIR=$HOME/.dotfiles
 
 
 
+# z - jump around
+# Tracks your most used directories, based on 'frecency'.
+# https://github.com/rupa/z
+# https://www.monades.dev/jumping-directories-with-z/
+
+# Not needed anymore; z is imported as a oh-my-zsh plugin by antigen
+#Z_SCRIPT="/usr/local/etc/profile.d/z.sh"
+#[ -r "$Z_SCRIPT" ] && [ -f "$Z_SCRIPT" ]  &&  source "$Z_SCRIPT"
+
+# Declutter home folder: Move ~/.z to ~/.local/share/z
+export _Z_DATA="$HOME/.local/share/z"
+
+
+
 ###
 ###  antigen - The plugin manager for zsh
 ###
@@ -19,7 +33,8 @@ source /usr/local/share/antigen/antigen.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
-# Load bundles
+# Load bundles from the default repo (robbyrussell's oh-my-zsh)
+antigen bundle z
 #antigen bundle mafredri/zsh-async
 #antigen bundle sindresorhus/pure
 
@@ -335,17 +350,6 @@ autoload -Uz compinit && compinit -d "$HOME/.cache/zsh/zcompdump_${ZSH_VERSION}"
 
 # Load bashcompinit for some old bash completions
 autoload bashcompinit && bashcompinit
-
-
-
-# z - jump around
-# Tracks your most used directories, based on 'frecency'.
-# https://github.com/rupa/z
-# https://www.monades.dev/jumping-directories-with-z/
-
-Z_SCRIPT="/usr/local/etc/profile.d/z.sh"
-
-[ -r "$Z_SCRIPT" ] && [ -f "$Z_SCRIPT" ]  &&  source "$Z_SCRIPT"
 
 
 
