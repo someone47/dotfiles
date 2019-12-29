@@ -10,7 +10,12 @@
 
 # --- Resolve DOTFILES_DIR
 
-export DOTFILES_DIR=$(dirname "$(dirname "$(readlink "$BASH_SOURCE")")")
+
+# ~/.dotfiles/config/bash
+BASH_CONFIG_DIR="$(dirname "$(readlink "$BASH_SOURCE")")"
+
+# ~/.dotfiles
+export DOTFILES_DIR=$(dirname "$(dirname "$BASH_CONFIG_DIR")")
 
 if [ ! -d "$DOTFILES_DIR" ] ; then
     echo "Expect .dotfiles to be here: " $DOTFILES_DIR
@@ -33,7 +38,7 @@ DOTFILES_CACHE="$DOTFILES_DIR/.cache.sh"
 # --- Source the dotfiles
 
 # bash prompt is suboptimal: error hint even when eror code is 0
-for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,completion,prompt,nvm,jenv,kubernetes,fasd,misc,iterm2}; do
+for DOTFILE in "$BASH_CONFIG_DIR"/.{function,function_*,path,env,alias,completion,prompt,nvm,jenv,kubernetes,fasd,misc,iterm2}; do
     #start_ms=$(ruby -e 'puts (Time.now.to_f * 1000).to_i')
     [ -r "$DOTFILE" ] && [ -f "$DOTFILE" ]  &&  source "$DOTFILE"
     #end_ms=$(ruby -e 'puts (Time.now.to_f * 1000).to_i')
@@ -42,7 +47,7 @@ for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,compl
 done
 
 if is-macos; then
-    for DOTFILE in "$DOTFILES_DIR"/system/.{env,alias,function}.macos; do
+    for DOTFILE in "$BASH_CONFIG_DIR"/.{env,alias,function}.macos; do
         [ -r "$DOTFILE" ] && [ -f "$DOTFILE" ]  &&  source "$DOTFILE"
     done
 fi
@@ -54,7 +59,7 @@ unset DOTFILE;
 [ -r "$HOME/.custom.bash" ] && [ -f "$HOME/.custom.bash" ]  &&  source "$HOME/.custom.bash"
 
 
-# --- Final cleanup of path
+# --- Final path cleanup
 
 # path_helper (macOS Tool) build up the path of /etc/paths, paths.d
 # and the current path environment variable.

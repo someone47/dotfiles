@@ -23,11 +23,13 @@ mkdir -p $DATA_DIR
 # -s  create a symbolic link
 # -f  if the target file already exists, then unlink it so that the link may occur
 # -v  verbose, showing files as they are processed
-ln -sfv "$DOTFILES_DIR/system/.bash_profile" ~
 
 # System config files
 # .inputrc - GNU Readline library
 ln -sfv "$DOTFILES_DIR/config/_system/.inputrc" ~
+
+# bash
+ln -sfv "$DOTFILES_DIR/config/bash/.bash_profile" ~
 
 # zsh
 ln -sfv "$DOTFILES_DIR/config/zsh/.zshenv" ~
