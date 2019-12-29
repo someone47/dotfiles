@@ -24,17 +24,17 @@ ln -sfv "$DOTFILES_DIR/config/nvim" ~/.config
 # -f  if the target file already exists, then unlink it so that the link may occur
 # -v  verbose, showing files as they are processed
 ln -sfv "$DOTFILES_DIR/system/.bash_profile" ~
-ln -sfv "$DOTFILES_DIR/system/.inputrc" ~
 ln -sfv "$DOTFILES_DIR/system/.zshrc" ~
+
+# System config files
+ln -sfv "$DOTFILES_DIR/config/_system/.inputrc" ~    # GNU Readline library
 
 # Git files
 ln -sfv "$DOTFILES_DIR/config/git/.gitconfig" ~
 ln -sfv "$DOTFILES_DIR/config/git/.gitignore_global" ~
 [ -f "$HOME/.gitconfig.custom" ]  ||  cp "$DOTFILES_DIR/config/git/.gitconfig.custom" ~
 
-
 # Package managers & packages
-
 source "$DOTFILES_DIR/install/brew.sh"
 source "$DOTFILES_DIR/install/brew-packages.sh"
 source "$DOTFILES_DIR/install/brew-cask.sh"
