@@ -10,6 +10,25 @@ export DOTFILES_DIR=$HOME/.dotfiles
 
 
 ###
+###  antigen - The plugin manager for zsh
+###
+
+# https://github.com/zsh-users/antigen
+source /usr/local/share/antigen/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Load bundles
+#antigen bundle mafredri/zsh-async
+#antigen bundle sindresorhus/pure
+
+# Antigen configuration completed
+antigen apply
+
+
+
+###
 ###  System settings
 ###
 

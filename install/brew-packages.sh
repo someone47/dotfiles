@@ -8,6 +8,7 @@ fi
 echo "Installing Homebrew packages"
 
 apps=(
+    antigen
     autoconf
     bash
     bash-completion@2
