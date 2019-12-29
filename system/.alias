@@ -1,8 +1,12 @@
 # .alias
 
+
+alias edf="code ~/.dotfiles"            # open dotfiles in editor
+alias reload="source ~/.bash_profile"   # reload shell config
+
+
 # --- Shortcuts
 
-alias reload="source ~/.bash_profile"
 alias g=git                             # g: git
 alias e=$EDITOR                         # e: start text editor
 

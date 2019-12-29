@@ -98,9 +98,13 @@ setopt HIST_IGNORE_SPACE
 ###  Aliases
 ###
 
+
+alias edf="code ~/.dotfiles"            # open dotfiles in editor
+alias reload="source ~/.zshrc"          # reload shell config
+
+
 # Shortcuts
 
-alias reload="source ~/.zshrc"
 alias g=git                             # g: git
 alias e=$EDITOR                         # e: start text editor
 alias k=kubectl                         # k: kubectl
