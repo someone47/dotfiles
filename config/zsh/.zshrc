@@ -57,7 +57,7 @@ setopt CORRECT
 ###
 
 # Where to save history to disk
-HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+HISTFILE=$HOME/.cache/zsh/history
 
 # How many lines of history to keep in memory
 HISTSIZE=2000
@@ -312,7 +312,7 @@ zstyle ':completion:*' list-suffixes
 zstyle ':completion:*' expand prefix suffix
 
 # Enable the default zsh completions
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -d "$HOME/.cache/zsh/zcompdump"
 
 # Load bashcompinit for some old bash completions
 autoload bashcompinit && bashcompinit
@@ -416,7 +416,8 @@ export VIMDATA=$HOME/.local/share/nvim      # folder where Neovim stores data
 
 # Enable iTerm integration only when running in iTerm
 if [[ $TERM_PROGRAM == *"iTerm"* ]]; then
-    [ -r ".iterm2" ] && [ -f ".iterm2" ]  &&  source ".iterm2"
+    ITERM_INTEGRATION="$HOME/.dotfiles/config/iTerm/.iterm2_shell_integration.zsh"
+    [ -r "$ITERM_INTEGRATION" ] && [ -f "$ITERM_INTEGRATION" ]  &&  source "$ITERM_INTEGRATION"
 fi
 
 # -- Python
@@ -469,7 +470,7 @@ export PATH
 ###  Custom extension
 ###
 
-[ -r "$HOME/.custom.zsh" ] && [ -f "$HOME/.custom.zsh" ]  &&  source "$HOME/.custom.zsh"
+[ -r "$HOME/.zsh.custom" ] && [ -f "$HOME/.zsh.custom" ]  &&  source "$HOME/.zsh.custom"
 
 # If .custom.zsh does not exist this config scrit would exit with a falsy error code.
 # To avoid this, we return a truthy value.

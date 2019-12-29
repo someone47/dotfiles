@@ -1,38 +1,45 @@
 #!/usr/bin/env bash
 
+# install.sh
+
 
 # Detect the path to the .dotfiles folder
-
-export DOTFILES_DIR
-DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DOTFILES_CACHE="$DOTFILES_DIR/.cache.sh"
 
-
 # Make utilities available
-
 PATH="$DOTFILES_DIR/bin:$PATH"
 
-
-# Install some symlinks
-
-# create .config folder and do not complain when is already exists (-p)
-mkdir -p $HOME/.config
-ln -sfv "$DOTFILES_DIR/config/nvim" ~/.config
+# Create XDG Base Directories
+# and do not complain when is already exists (-p)
+CACHE_DIR=$HOME/.cache
+CONFIG_DIR=$HOME/.config
+DATA_DIR=$HOME/.local/share
+mkdir -p $CACHE_DIR
+mkdir -p $CONFIG_DIR
+mkdir -p $DATA_DIR
 
 # ln options
 # -s  create a symbolic link
 # -f  if the target file already exists, then unlink it so that the link may occur
 # -v  verbose, showing files as they are processed
 ln -sfv "$DOTFILES_DIR/system/.bash_profile" ~
-ln -sfv "$DOTFILES_DIR/system/.zshrc" ~
 
 # System config files
-ln -sfv "$DOTFILES_DIR/config/_system/.inputrc" ~    # GNU Readline library
+# .inputrc - GNU Readline library
+ln -sfv "$DOTFILES_DIR/config/_system/.inputrc" ~
 
-# Git files
+# zsh
+ln -sfv "$DOTFILES_DIR/config/zsh/.zshenv" ~
+mkdir -p "$CACHE_DIR/zsh"
+
+# git
 ln -sfv "$DOTFILES_DIR/config/git/.gitconfig" ~
 ln -sfv "$DOTFILES_DIR/config/git/.gitignore_global" ~
 [ -f "$HOME/.gitconfig.custom" ]  ||  cp "$DOTFILES_DIR/config/git/.gitconfig.custom" ~
+
+# nvim
+ln -sfv "$DOTFILES_DIR/config/nvim" $CONFIG_DIR
 
 # Package managers & packages
 source "$DOTFILES_DIR/install/brew.sh"

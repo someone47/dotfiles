@@ -3,15 +3,19 @@
 # iTerm2 is a replacement for Terminal and the successor to iTerm.
 # https://www.iterm2.com/
 
+# Enable iTerm integration only when running in iTerm
+if [[ $TERM_PROGRAM == *"iTerm"* ]]; then
 
-if [ -f "$HOME/.iterm2_shell_integration.bash" ] ; then
+    ITERM_INTEGRATION="$HOME/.dotfiles/config/iTerm/.iterm2_shell_integration.bash"
 
-    source "$HOME/.iterm2_shell_integration.bash"
+    if [ -f "$ITERM_INTEGRATION" ] ; then
 
-    # Define user variable for iTerm2
-    function iterm2_print_user_vars() {
-        # use as batch with \(user.gitBranch)
-        iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
-    }
+        source "$ITERM_INTEGRATION"
+
+        # Define user variable for iTerm2
+        function iterm2_print_user_vars() {
+            # use as batch with \(user.gitBranch)
+            iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
+        }
+    fi
 fi
-
