@@ -312,7 +312,7 @@ zstyle ':completion:*' list-suffixes
 zstyle ':completion:*' expand prefix suffix
 
 # Enable the default zsh completions
-autoload -Uz compinit && compinit -d "$HOME/.cache/zsh/zcompdump"
+autoload -Uz compinit && compinit -d "$HOME/.cache/zsh/zcompdump_${ZSH_VERSION}"
 
 # Load bashcompinit for some old bash completions
 autoload bashcompinit && bashcompinit
