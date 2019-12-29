@@ -99,8 +99,9 @@ setopt HIST_IGNORE_SPACE
 ###
 
 
-alias edf="code ~/.dotfiles"            # open dotfiles in editor
-alias reload="source ~/.zshrc"          # reload shell config
+alias cddf="cd ~/.dotfiles"             # Goto dotfiles directory
+alias edf="code ~/.dotfiles"            # Open dotfiles in editor
+alias reload="source ~/.zshrc"          # Reload shell config
 
 
 # Shortcuts

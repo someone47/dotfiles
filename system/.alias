@@ -1,8 +1,9 @@
 # .alias
 
 
-alias edf="code ~/.dotfiles"            # open dotfiles in editor
-alias reload="source ~/.bash_profile"   # reload shell config
+alias cddf="cd ~/.dotfiles"             # Goto dotfiles directory
+alias edf="code ~/.dotfiles"            # Open dotfiles in editor
+alias reload="source ~/.bash_profile"   # Reload shell config
 
 
 # --- Shortcuts
