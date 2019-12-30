@@ -84,6 +84,9 @@ antigen bundle colored-man-pages
 # This plugin adds auto-completion for docker - https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
 antigen bundle docker
 
+# supports working with GitHub from the command line - https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/github
+antigen bundle github
+
 # z, jump around - https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/z
 antigen bundle z
 
@@ -260,9 +263,6 @@ alias uuid='uuidgen'
 
 # guid: generate a uuid with all lowercase letters
 alias guid='uuidgen | tr "[:upper:]" "[:lower:]"'
-
-# hub wraps git and adds features for working with GitHub
-is-executable hub  &&  eval "$(hub alias -s)"
 
 # Copy public key to clipboard:
 alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
