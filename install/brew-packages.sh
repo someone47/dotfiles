@@ -30,6 +30,7 @@ apps=(
     kotlin
     lame
     leiningen
+    maven
     maven-completion
     neovim
     openconnect
