@@ -10,5 +10,5 @@ fi
 
 echo "Installing Node"
 
-nvm install 8
-nvm alias default 8
+nvm install stable
+nvm alias default stable
