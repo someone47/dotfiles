@@ -27,7 +27,6 @@ export _Z_DATA="$HOME/.local/share/z"
 # not work.
 # Not needed anymore; z is loaded by shihyuho/zsh-jenv-lazy
 #eval "$(jenv init -)"
-# To use Homebrew's directories rather than ~/.jenv
 
 
 # nvm - Node Version Manager
@@ -387,9 +386,15 @@ PROMPT='%(?..%F{red}?%? )%f%B%F{magenta}%~%f%b %# '
 ###  Path part 1
 ###
 
-path+="$HOME/bin"
-path+="$HOME/.local/bin"
-path+="$DOTFILES_DIR/bin"
+path=(
+    "$HOME/bin"
+    "$HOME/.local/bin"
+    "$DOTFILES_DIR/bin"
+    "$HOME/.gem/bin"                            # Ruby gems (e.g. Asciidoctor)
+    "$HOME/.jenv/shims"                         # Shims of jenv, has to come before mvn
+    #"$HOME/dev/java/prog/maven/current/bin"
+    $path
+)
 
 
 
@@ -498,16 +503,11 @@ export DOTNET_CLI_UI_LANGUAGE=en
 ### Path part 2
 ###
 
-# path_helper (macOS Tool) build up the path of /etc/paths, paths.d
-# and the current path environment variable.
-# (see https://scriptingosx.com/2017/05/where-paths-come-from/)
-eval $(/usr/libexec/path_helper -s)
-
 # Remove duplicates (preserving prepended items)
 # Source: http://unix.stackexchange.com/a/40755
-PATH=`echo -n $PATH | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
+#PATH=`echo -n $PATH | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
 
-export PATH
+#export PATH
 
 
 
