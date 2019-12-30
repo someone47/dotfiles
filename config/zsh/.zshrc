@@ -13,13 +13,53 @@ export DOTFILES_DIR=$HOME/.dotfiles
 # Tracks your most used directories, based on 'frecency'.
 # https://github.com/rupa/z
 # https://www.monades.dev/jumping-directories-with-z/
-
 # Not needed anymore; z is imported as a oh-my-zsh plugin by antigen
 #Z_SCRIPT="/usr/local/etc/profile.d/z.sh"
 #[ -r "$Z_SCRIPT" ] && [ -f "$Z_SCRIPT" ]  &&  source "$Z_SCRIPT"
-
 # Declutter home folder: Move ~/.z to ~/.local/share/z
 export _Z_DATA="$HOME/.local/share/z"
+
+
+# jEnv
+# jEnv is a command line tool to help you forget how to set the JAVA_HOME
+# environment variable (http://www.jenv.be/).
+# jenv must be appear in PATH before Maven otherwise the jenv shims will
+# not work.
+# Not needed anymore; z is loaded by shihyuho/zsh-jenv-lazy
+#eval "$(jenv init -)"
+# To use Homebrew's directories rather than ~/.jenv
+
+
+# nvm - Node Version Manager
+# Simple bash script to manage multiple active node.js versions
+# https://github.com/creationix/nvm
+# Not needed anymore; z is loaded by lukechilds/zsh-nvm
+#if [ -f "$HOME/.nvm/nvm.sh" ]; then
+#
+#    # Improve startup time of bash shell by delaying initialisation of nvm
+#    # https://gist.github.com/fl0w/07ce79bd44788f647deab307c94d6922
+#    # https://www.growingwiththeweb.com/2018/01/slow-nvm-init.html
+#    # http://broken-by.me/lazy-load-nvm/
+#
+#    # Lazy-loading nvm + npm on node globals call
+#    load_nvm () {
+#        export NVM_DIR="$HOME/.nvm"
+#        # Activate nvm
+#        source "$NVM_DIR/nvm.sh"
+#    }
+#
+#    # Add every binary that requires nvm, npm or node to run to an array of node globals
+#    NODE_GLOBALS=(`find $HOME/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
+#    NODE_GLOBALS+=("node")
+#    NODE_GLOBALS+=("nvm")
+#
+#    # Making node global trigger the lazy loading
+#    for cmd in "${NODE_GLOBALS[@]}"; do
+#        eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
+#    done
+#fi
+# Improve zsh startup by deferring nvm init by lukechilds/zsh-nvm
+export NVM_LAZY_LOAD=true
 
 
 
@@ -34,9 +74,37 @@ source /usr/local/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 # Load bundles from the default repo (robbyrussell's oh-my-zsh)
+
+# Several aliases for common brew commands - https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/brew
+antigen bundle brew
+
+# Add colors to man pages - https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/colored-man-pages
+antigen bundle colored-man-pages
+
+# This plugin adds auto-completion for docker - https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
+antigen bundle docker
+
+# z, jump around - https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/z
 antigen bundle z
+
+# installing, updating and loading nvm - https://github.com/lukechilds/zsh-nvm
+antigen bundle lukechilds/zsh-nvm
+
+# Lazy loading of jEnv - https://github.com/shihyuho/zsh-jenv-lazy
+antigen bundle shihyuho/zsh-jenv-lazy
+
+# pure, Pretty, minimal and fast ZSH prompt - https://github.com/sindresorhus/pure
 #antigen bundle mafredri/zsh-async
 #antigen bundle sindresorhus/pure
+
+# Fish shell like syntax highlighting for Zsh - https://github.com/zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Additional completion definitions for Zsh - https://github.com/zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-completions
+
+# Fish-like autosuggestions for zsh - https://github.com/zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-autosuggestions
 
 # Antigen configuration completed
 antigen apply
@@ -140,6 +208,7 @@ alias reload="source ~/.zshrc"          # Reload shell config
 
 # Shortcuts
 
+alias q=exit                            # q: exit
 alias g=git                             # g: git
 alias e=$EDITOR                         # e: start text editor
 alias k=kubectl                         # k: kubectl
@@ -350,53 +419,6 @@ autoload -Uz compinit && compinit -d "$HOME/.cache/zsh/zcompdump_${ZSH_VERSION}"
 
 # Load bashcompinit for some old bash completions
 autoload bashcompinit && bashcompinit
-
-
-
-###
-###  jEnv
-###
-
-# jEnv is a command line tool to help you forget how to set the JAVA_HOME
-# environment variable (http://www.jenv.be/).
-# jenv must be appear in PATH before Maven otherwise the jenv shims will
-# not work.
-
-eval "$(jenv init -)"
-
-
-
-###
-###  NVM - Node Version Manager
-###
-
-# Simple bash script to manage multiple active node.js versions
-# https://github.com/creationix/nvm
-
-if [ -f "$HOME/.nvm/nvm.sh" ]; then
-
-    # Improve startup time of bash shell by delaying initialisation of nvm
-    # https://gist.github.com/fl0w/07ce79bd44788f647deab307c94d6922
-    # https://www.growingwiththeweb.com/2018/01/slow-nvm-init.html
-    # http://broken-by.me/lazy-load-nvm/
-
-    # Lazy-loading nvm + npm on node globals call
-    load_nvm () {
-        export NVM_DIR="$HOME/.nvm"
-        # Activate nvm
-        source "$NVM_DIR/nvm.sh"
-    }
-
-    # Add every binary that requires nvm, npm or node to run to an array of node globals
-    NODE_GLOBALS=(`find $HOME/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
-    NODE_GLOBALS+=("node")
-    NODE_GLOBALS+=("nvm")
-
-    # Making node global trigger the lazy loading
-    for cmd in "${NODE_GLOBALS[@]}"; do
-        eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
-    done
-fi
 
 
 
