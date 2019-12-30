@@ -12,7 +12,8 @@ echo "Installing Homebrew Cask packages"
 # https://github.com/buo/homebrew-cask-upgrade
 brew tap buo/cask-upgrade
 
-brew tap caskroom/cask
+# "Error: caskroom/cask was moved. Tap homebrew/cask-cask instead."
+#brew tap caskroom/cask
 
 
 # Install packages
