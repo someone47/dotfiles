@@ -39,6 +39,7 @@ apps=(
     opera
     p4merge
     postman
+    rar
     soapui
     sourcetree
     spotify
