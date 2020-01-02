@@ -378,7 +378,8 @@ function manpdf() {
 # %(?.<success>.<failure>) - expression success when last command returned
 #                            with exit code 0, otherwise failure expression
 
-PROMPT='%(?..%F{red}?%? )%f%B%F{magenta}%~%f%b %# '
+CR=$'\n'
+PROMPT='%(?..%F{red}?%? )%f%B%F{magenta}%~%f%b${CR}%# '
 
 
 
