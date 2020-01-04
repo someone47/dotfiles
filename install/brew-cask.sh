@@ -23,6 +23,7 @@ apps=(
     boostnote
     chromium
     dbvisualizer
+    disk-drill
     disk-inventory-x
     dotnet-sdk
     dropbox
