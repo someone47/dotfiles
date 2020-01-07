@@ -375,11 +375,13 @@ function manpdf() {
 # %f       - switch to default color
 # %B...%b  - bold font
 # %?       - previous command’s exit code
-# %(?.<success>.<failure>) - expression success when last command returned
-#                            with exit code 0, otherwise failure expression
+# %(?.<success>.<failure>)  - expression success when last command returned
+#                             with exit code 0, otherwise failure expression
+# %{$(iterm2_prompt_mark)%} - integration of iTerm2 for multi-line prompt
+#                             see https://www.iterm2.com/documentation-shell-integration.html
 
 NEW_LINE=$'\n'
-PROMPT='%(?..%F{red}?%? )%f%B%F{magenta}%~%f%b${NEW_LINE}%# '
+PROMPT='%(?..%F{red}?%? )%f%B%F{magenta}%~%f%b${NEW_LINE}%{$(iterm2_prompt_mark)%}%# '
 
 
 
