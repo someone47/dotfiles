@@ -35,7 +35,7 @@ apps=(
     iTerm2
     java8
     java9
-    keepassx
+    #keepassx
     keepassxc
     opera
     p4merge
