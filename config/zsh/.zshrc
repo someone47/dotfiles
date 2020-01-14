@@ -381,7 +381,11 @@ function manpdf() {
 #                             see https://www.iterm2.com/documentation-shell-integration.html
 
 NEW_LINE=$'\n'
-PROMPT='%(?..%F{red}?%? )%f%B%F{magenta}%~%f%b${NEW_LINE}%{$(iterm2_prompt_mark)%}%# '
+if [[ $TERM_PROGRAM == *"iTerm"* ]]; then
+    PROMPT='%(?..%F{red}?%? )%f%B%F{magenta}%~%f%b${NEW_LINE}%{$(iterm2_prompt_mark)%}%# '
+else
+    PROMPT='%(?..%F{red}?%? )%f%B%F{magenta}%~%f%b${NEW_LINE}%# '
+fi
 
 
 
