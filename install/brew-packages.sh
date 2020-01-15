@@ -46,6 +46,7 @@ apps=(
     ssh-copy-id
     subversion
     thefuck
+    tmux
     tree
     unar
     unrar
