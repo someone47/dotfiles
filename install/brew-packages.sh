@@ -25,6 +25,7 @@ apps=(
     golang
     gradle
     hub
+    htop
     httpie
     jenv
     kotlin
