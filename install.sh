@@ -43,6 +43,10 @@ ln -sfv "$DOTFILES_DIR/config/git/.gitignore_global" ~
 # nvim
 ln -sfv "$DOTFILES_DIR/config/nvim" $CONFIG_DIR
 
+# tmux
+ln -sfv "$DOTFILES_DIR/config/tmux/.tmux.conf" ~
+
+
 # Package managers & packages
 source "$DOTFILES_DIR/install/brew.sh"
 source "$DOTFILES_DIR/install/brew-packages.sh"
