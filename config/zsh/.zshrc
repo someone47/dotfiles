@@ -518,7 +518,7 @@ export DOTNET_CLI_UI_LANGUAGE=en
 ###  Custom extension
 ###
 
-[ -r "$HOME/.zsh.custom" ] && [ -f "$HOME/.zsh.custom" ]  &&  source "$HOME/.zsh.custom"
+[ -r "$HOME/.custom.zsh" ] && [ -f "$HOME/.custom.zsh" ]  &&  source "$HOME/.custom.zsh"
 
 # If .custom.zsh does not exist this config scrit would exit with a falsy error code.
 # To avoid this, we return a truthy value.
