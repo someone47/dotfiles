@@ -396,7 +396,7 @@ path=(
     "$DOTFILES_DIR/bin"
     "$HOME/.gem/bin"                            # Ruby gems (e.g. Asciidoctor)
     "$HOME/.jenv/shims"                         # Shims of jenv, has to come before mvn
-    #"$HOME/dev/java/prog/maven/current/bin"
+    "/usr/local/sbin"                           # Homebrew's sbin folder
     $path
 )
 
@@ -492,6 +492,10 @@ export HOMEBREW_NO_ANALYTICS=1
 
 # Maven settings
 export MAVEN_OPTS="-Xms512m -Xmx1024m"
+
+# -- Groovy
+
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
 # -- .NET Core
 
