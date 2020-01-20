@@ -205,7 +205,7 @@ setopt HIST_IGNORE_SPACE
 
 alias cddf="cd ~/.dotfiles"             # Goto dotfiles directory
 alias edf="code ~/.dotfiles"            # Open dotfiles in editor
-alias reload="source ~/.zshrc"          # Reload shell config
+alias reload="source $DOTFILES_DIR/config/zsh/.zshrc"   # Reload shell config
 
 
 # Shortcuts
@@ -217,6 +217,7 @@ alias k=kubectl                         # k: kubectl
 
 alias vim=nvim                          # Use Neovim instead of Vim
 alias vi=nvim                           # Use Neovim instead of Vi
+alias unjar=unar                        # Extract jar
 
 
 # List declared aliases, functions, paths
