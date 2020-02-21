@@ -210,10 +210,11 @@ alias reload="source $DOTFILES_DIR/config/zsh/.zshrc"   # Reload shell config
 
 # Shortcuts
 
-alias q=exit                            # q: exit
-alias g=git                             # g: git
-alias e=$EDITOR                         # e: start text editor
-alias k=kubectl                         # k: kubectl
+alias q=exit                            # q:  exit
+alias g=git                             # g:  git
+alias e=$EDITOR                         # e:  start text editor
+alias k=kubectl                         # k:  kubectl
+alias tx=tmuxinator                     # tx: tmuxinator
 
 alias vim=nvim                          # Use Neovim instead of Vim
 alias vi=nvim                           # Use Neovim instead of Vi
