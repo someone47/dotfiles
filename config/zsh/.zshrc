@@ -383,7 +383,7 @@ function manpdf() {
 #                             see https://www.iterm2.com/documentation-shell-integration.html
 
 NEW_LINE=$'\n'
-PROMPT='%(?..%F{red}?%? )%f%B%F{magenta}%~%f%b${NEW_LINE}%# '
+PROMPT="%(?..%F{red}?%? )%f%B%F{magenta}%~%f%b${NEW_LINE}%# "
 
 
 
