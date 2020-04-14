@@ -45,6 +45,7 @@ apps=(
     sourcetree
     spotify
     sublime-text
+    the-unarchiver
     transmission
     virtualbox
     visual-studio-code

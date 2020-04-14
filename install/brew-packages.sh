@@ -36,6 +36,7 @@ apps=(
     neovim
     openconnect
     openssl
+    p7zip
     pkg-config
     python
     python3
