@@ -117,6 +117,11 @@ antigen apply
 ###  System settings
 ###
 
+# Pager
+# https://stackoverflow.com/questions/48341920/git-branch-command-behaves-like-less/49862151#49862151
+# https://stackoverflow.com/questions/48341920/git-branch-command-behaves-like-less/60498979#60498979
+export LESS=-FRX
+
 # Default text editor
 export EDITOR="code"
 
