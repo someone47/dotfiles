@@ -15,6 +15,9 @@ brew tap buo/cask-upgrade
 # "Error: caskroom/cask was moved. Tap homebrew/cask-cask instead."
 #brew tap caskroom/cask
 
+# AdoptOpenJDK
+# https://github.com/AdoptOpenJDK/homebrew-openjdk
+brew tap AdoptOpenJDK/openjdk
 
 # Install packages
 
