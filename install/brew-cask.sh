@@ -22,6 +22,8 @@ brew tap AdoptOpenJDK/openjdk
 # Install packages
 
 apps=(
+    adoptopenjdk8
+    adoptopenjdk11
     atom
     boostnote
     chromium
@@ -36,8 +38,8 @@ apps=(
     font-fira-code
     google-chrome
     iTerm2
-    java8
-    java9
+    #java8
+    #java9
     #keepassx
     keepassxc
     opera
