@@ -46,7 +46,7 @@ apps=(
     p4merge
     postman
     rar
-    soapui
+    #soapui
     sourcetree
     spotify
     sublime-text
