@@ -32,7 +32,7 @@ apps=(
     disk-inventory-x
     dotnet-sdk
     dropbox
-    enpass
+    #enpass
     firefox
     focuswriter
     font-fira-code
