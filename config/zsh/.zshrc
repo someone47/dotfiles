@@ -364,7 +364,7 @@ function cdf() {
 # e.g.
 # > manpdf ls
 function manpdf() {
-    man -t "$1" | open -f -a /Applications/Preview.app/
+    man -t "$1" | open -f -a /System/Applications/Preview.app/
 }
 
 
