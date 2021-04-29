@@ -123,7 +123,7 @@ antigen apply
 export LESS=-FRX
 
 # Default text editor
-export EDITOR="code"
+export EDITOR="vim"
 
 # Prefer US English and use UTF-8
 export LANG=en_US.UTF-8
