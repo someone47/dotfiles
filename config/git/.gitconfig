@@ -4,6 +4,9 @@
 [include]
     path = ~/.gitconfig.custom
 
+[init]
+    defaultBranch = main
+
 [core]
     excludesfile = ~/.gitignore_global
     editor = subl -n -w
