@@ -306,6 +306,8 @@ alias ql="qlmanage -p &>/dev/null"
 alias cleanupds="find . -type f -name '*.DS_Store' -ls -exec /bin/rm {} \;"
 alias cleanupad="find . -type d -name '.AppleD*' -ls -exec /bin/rm -r {} \;"
 
+# PlantUML
+alias plantuml-server="docker run -d -p 40000:8080 plantuml/plantuml-server:jetty && sleep 3; open http://localhost:40000/"
 
 
 ###
