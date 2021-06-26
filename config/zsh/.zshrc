@@ -275,6 +275,7 @@ alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pas
 
 # Show local ip:
 alias localip="ipconfig getifaddr en0"
+alias localips="ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}'"
 
 # Recursively remove .DS_Store files
 alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
