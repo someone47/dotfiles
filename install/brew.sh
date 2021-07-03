@@ -15,7 +15,7 @@ echo "Installing Homebrew"
 brew tap Goles/battery
 
 # Spring from Pivotal
-brew tap pivotal/tap
+#brew tap pivotal/tap
 
 # Fira Font
 brew tap homebrew/cask-fonts
