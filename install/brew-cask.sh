@@ -10,7 +10,7 @@ echo "Installing Homebrew Cask packages"
 # brew-cask-upgrade is a command-line tool for upgrading every
 # outdated app installed by Homebrew Cask.
 # https://github.com/buo/homebrew-cask-upgrade
-brew tap buo/cask-upgrade
+#brew tap buo/cask-upgrade
 
 # "Error: caskroom/cask was moved. Tap homebrew/cask-cask instead."
 #brew tap caskroom/cask
@@ -22,8 +22,8 @@ brew tap AdoptOpenJDK/openjdk
 # Install packages
 
 apps=(
-    adoptopenjdk8
-    adoptopenjdk11
+    adoptopenjdk/openjdk/adoptopenjdk8
+    adoptopenjdk/openjdk/adoptopenjdk11
     atom
     boostnote
     brave-browser
@@ -76,6 +76,6 @@ apps=(
 brew update
 brew upgrade
 
-brew cask install "${apps[@]}"
+brew install --cask "${apps[@]}"
 
 brew cleanup

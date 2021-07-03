@@ -14,7 +14,6 @@ apps=(
     autoconf
     bash
     bash-completion@2
-    cmake
     coreutils
     exa
     fasd
@@ -45,14 +44,13 @@ apps=(
     rsync
     sbt
     scala
-    springboot
+    #springboot
     ssh-copy-id
     subversion
     thefuck
     tmux
     tree
     unar
-    unrar
     vim
     wget
     wifi-password
