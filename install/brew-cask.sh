@@ -26,9 +26,12 @@ apps=(
     adoptopenjdk11
     atom
     boostnote
+    brave-browser
+    calibre
     #chromium
-    dbvisualizer
+    #dbvisualizer
     #disk-drill
+    discord
     disk-inventory-x
     #dotnet-sdk
     #dropbox
@@ -42,20 +45,26 @@ apps=(
     jdownloader
     #java8
     #java9
+    jdownloader
     #keepassx
     keepassxc
     kindle
+    macpar-deluxe
     mediathekview
+    objektiv
     #opera
     p4merge
     postman
-    rar
+    #rar
     signal
+    slack
     #soapui
     sourcetree
     spotify
     sublime-text
+    sync
     the-unarchiver
+    tor-browser
     #transmission
     #virtualbox
     visual-studio-code
