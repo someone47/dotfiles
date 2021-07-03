@@ -26,35 +26,40 @@ apps=(
     adoptopenjdk11
     atom
     boostnote
-    chromium
+    #chromium
     dbvisualizer
-    disk-drill
+    #disk-drill
     disk-inventory-x
-    dotnet-sdk
-    dropbox
+    #dotnet-sdk
+    #dropbox
     #enpass
     firefox
     focuswriter
     font-fira-code
+    font-ia-writer-duospace
     google-chrome
     iTerm2
+    jdownloader
     #java8
     #java9
     #keepassx
     keepassxc
-    opera
+    kindle
+    mediathekview
+    #opera
     p4merge
     postman
     rar
+    signal
     #soapui
     sourcetree
     spotify
     sublime-text
     the-unarchiver
-    transmission
-    virtualbox
+    #transmission
+    #virtualbox
     visual-studio-code
-    vivaldi
+    #vivaldi
     vlc
     whatsapp
 )
