@@ -9,6 +9,8 @@ echo "Installing Homebrew packages"
 
 apps=(
     antigen
+    asciidoc
+    asciidoctor
     autoconf
     bash
     bash-completion@2
@@ -22,7 +24,6 @@ apps=(
     git
     glances
     gnutls
-    golang
     gradle
     hub
     htop
@@ -56,6 +57,7 @@ apps=(
     wget
     wifi-password
     yarn
+    youtube-dl
     z
     zsh
     zsh-completions
