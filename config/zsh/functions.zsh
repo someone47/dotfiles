@@ -46,3 +46,18 @@ function cdf() {
 function manpdf() {
     man -t "$1" | open -f -a /System/Applications/Preview.app/
 }
+
+# git-deep-fetch - Fetch all remote branches
+function git-deep-fetch() {
+    # Loop for all remote branches,
+    # create one with the same name locally,
+    # track it to the remote
+    for branch in $(git branch --all | grep '^\s*remotes' | egrep --invert-match '(:?HEAD|master)$')
+    do
+        git branch --track "${branch##*/}" "$branch"
+    done
+
+    # fetch/pull all of them
+    git fetch --all --tags
+    git pull --all
+}
