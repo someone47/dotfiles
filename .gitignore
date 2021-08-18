@@ -1,3 +1,6 @@
 .cache.sh
 system/.custom
 *.zwc
+.zsh_sessions
+.zcompdump
+.zsh_history
