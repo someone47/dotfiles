@@ -89,6 +89,11 @@ antigen bundle github
 # z, jump around - https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/z
 antigen bundle z
 
+# asdf - Manage multiple runtime versions with a single CLI tool
+# https://asdf-vm.com
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/asdf
+#antigen bundle asdf
+
 # installing, updating and loading nvm - https://github.com/lukechilds/zsh-nvm
 antigen bundle lukechilds/zsh-nvm
 

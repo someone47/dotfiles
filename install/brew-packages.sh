@@ -9,8 +9,14 @@ echo "Installing Homebrew packages"
 
 apps=(
     antigen
-    asciidoc
-    asciidoctor
+
+    #asciidoc
+    #asciidoctor
+
+    # asdf - Manage multiple runtime versions with a single CLI tool
+    # https://asdf-vm.com/
+    asdf
+
     autoconf
     bash
     bash-completion@2
