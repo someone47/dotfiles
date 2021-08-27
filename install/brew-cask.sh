@@ -62,7 +62,12 @@ apps=(
     sourcetree
     spotify
     sublime-text
-    sync
+
+    # Do not install sync via Homebrew because macOS demands
+    # confirmation before starting a program downloaded from
+    # the internet.
+    #sync
+
     the-unarchiver
     tor-browser
     #transmission
