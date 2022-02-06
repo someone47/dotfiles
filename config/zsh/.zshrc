@@ -315,6 +315,10 @@ alias cleanupad="find . -type d -name '.AppleD*' -ls -exec /bin/rm -r {} \;"
 # PlantUML
 alias plantuml-server="docker run -d -p 40000:8080 --name plantuml-server plantuml/plantuml-server:jetty && sleep 3; open http://localhost:40000/"
 
+# Docker
+alias dps1="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Ports}}\t{{.Names}}'"
+alias dps2="docker ps --format 'ID\t{{.ID}}\nNAME\t{{.Names}}\nIMAGE\t{{.Image}}\nPORTS\t{{.Ports}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.CreatedAt}}\nSTATUS\t{{.Status}}\n'"
+
 
 ###
 ###  Suffix Aliases
