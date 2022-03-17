@@ -22,9 +22,9 @@ syntax on                       " syntax highlighting
 """
 
 " Kill the arrow keys because we want to stay in the base row
-nnoremap <up>    <nop>
-nnoremap <down>  <nop>
-nnoremap <left>  <nop>
-nnoremap <right> <nop>
-inoremap <up>    <nop>
-inoremap <down>  <nop>
+"nnoremap <up>    <nop>
+"nnoremap <down>  <nop>
+"nnoremap <left>  <nop>
+"nnoremap <right> <nop>
+"inoremap <up>    <nop>
+"inoremap <down>  <nop>
