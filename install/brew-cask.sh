@@ -17,7 +17,12 @@ echo "Installing Homebrew Cask packages"
 
 # AdoptOpenJDK
 # https://github.com/AdoptOpenJDK/homebrew-openjdk
-brew tap AdoptOpenJDK/openjdk
+#brew tap AdoptOpenJDK/openjdk
+
+# Alternate versions of Casks
+# https://github.com/Homebrew/homebrew-cask-versions
+# Needed for specific JDK versions (e.g. temurin8)
+brew tap homebrew/cask-versions
 
 # Install packages
 
