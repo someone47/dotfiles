@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Download recent image
+#docker pull plantuml/plantuml-server:jetty
+
+# Start PlantUML-Server on port 9999 in detached mode
+docker run --detach --publish 9999:8080 --name plantuml-server plantuml/plantuml-server:jetty
+
+sleep 4
+while ! curl http://localhost:9999
+do
+  echo "$(date) - still trying"
+  sleep 1
+done
+
+echo "PlantUML-Server started on port 9999"
+echo "http://localhost:9999"
+
+open http://localhost:9999
