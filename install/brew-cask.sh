@@ -29,7 +29,7 @@ brew tap homebrew/cask-versions
 apps=(
     atom
     boostnote
-    brave-browser
+    #brave-browser
     calibre
     #chromium
     #dbvisualizer
