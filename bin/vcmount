@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+vc_path=$1
+name="$(basename ${vc_path%.*})"
+vc_volume="/Volumes/$name"
+
+echo "mount: $vc_path -> $vc_volume"
+
+/Applications/VeraCrypt.app/contents/MacOS/VeraCrypt --text --mount "$vc_path" "$vc_volume" --pim 0 --keyfiles "" --protect-hidden no

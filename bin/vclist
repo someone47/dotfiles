@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+/Applications/VeraCrypt.app/contents/MacOS/VeraCrypt --text --list
